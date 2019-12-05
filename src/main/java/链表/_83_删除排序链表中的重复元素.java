@@ -1,7 +1,5 @@
 package 链表;
 
-import java.util.List;
-
 /**
  * @author hanbing
  * @create 2019-12-03 15:25
