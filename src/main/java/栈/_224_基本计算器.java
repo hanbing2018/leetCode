@@ -80,6 +80,8 @@ public class _224_基本计算器 {
     }
 
 
+
+    //第二种解法
     public int calculate2(String s) {
         LinkedList<Boolean> stack = new LinkedList<>();
         int result = 0, opr = 0; //result: 当前的结果值; opr: 当前的被加/被减数
