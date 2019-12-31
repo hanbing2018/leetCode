@@ -6,7 +6,7 @@ package 链表;
  */
 
 //https://leetcode-cn.com/problems/reverse-linked-list/
-public class _206_翻转链表 {
+public class _206_反转链表 {
 
     //递归方式
     ListNode reverseList1(ListNode head) {
@@ -23,8 +23,10 @@ public class _206_翻转链表 {
 
     //非递归方式
     ListNode reverseList2(ListNode head){
+        if (head == null || head.next == null) return head;
+
         ListNode newHead = null;
-        while(head != null && head.next != null){
+        while(head != null){
             ListNode next = head.next;
             head.next = newHead;
             newHead = head;
