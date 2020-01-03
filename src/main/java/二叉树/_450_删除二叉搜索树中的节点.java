@@ -132,9 +132,9 @@ public class _450_删除二叉搜索树中的节点 {
                 return root.right;
             }
         } else if(key > root.val) {
-            root.right = deleteNode(root.right,key);
+            root.right = deleteNode2(root.right,key);
         } else {
-            root.left = deleteNode(root.left,key);
+            root.left = deleteNode2(root.left,key);
         }
         return root;
     }
