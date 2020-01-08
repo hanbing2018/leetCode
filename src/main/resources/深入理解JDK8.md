@@ -70,6 +70,8 @@ list.forEach((Integer integer) -> System.out.println(integer));
 list.forEach(System.out::print);  //通过方法引用创建函数式接口的实例
 ```
 
+高阶函数：如果一个函数接收一个函数作为参数，或者返回一个函数作为返回值，那么该函数就叫做高阶函数。高阶函数通常是指以函数式接口作为参数，或返回值类型为函数式接口的函数。
+
 3、函数式接口Function详解
 
 ```java
@@ -148,6 +150,54 @@ public class TestBiFunction {
         System.out.println(ans);  //25
     }
 }
+```
+
+BinaryOperator继承了BiFunction
+
+```java
+@FunctionalInterface
+public interface BinaryOperator<T> extends BiFunction<T,T,T> {
+
+    public static <T> BinaryOperator<T> minBy(Comparator<? super T> comparator) {
+        Objects.requireNonNull(comparator);
+        return (a, b) -> comparator.compare(a, b) <= 0 ? a : b;
+    }
+
+    public static <T> BinaryOperator<T> maxBy(Comparator<? super T> comparator) {
+        Objects.requireNonNull(comparator);
+        return (a, b) -> comparator.compare(a, b) >= 0 ? a : b;
+    }
+}
+
+//用法示例
+public class BinaryOperatorTest {
+
+    public static void main(String[] args) {
+        BinaryOperatorTest test = new BinaryOperatorTest();
+        test.method(23, 45, (value1, value2) -> value1 * value2);
+
+        //静态函数minBy的使用
+        //定义一个比较规则，此处字符长长度短的为“小”
+        BinaryOperator<String> stringBinaryOperator = BinaryOperator.minBy((Comparator<String>) (o1, o2) -> o1.length() - o2.length());
+        System.out.println(stringBinaryOperator.apply("sunwukong", "zhubajie"));
+
+
+        System.out.println(test.minString("sunwukong", "tangseng", (o1, o2) -> o1.length() - o2.length()));
+        System.out.println(test.minString("sunwukong", "tangseng", (o1, o2) -> o1.charAt(0) - o2.charAt(0)));
+    }
+
+    public int method(int a, int b, BinaryOperator<Integer> binaryOperator){
+        return binaryOperator.apply(a, b);
+    }
+
+
+    //定义一个比较函数，返回较小的字符串，比较规则在调用时传入
+    public String minString(String s1, String s2, Comparator<String> comparator){
+        return BinaryOperator.minBy(comparator).apply(s1, s2);
+    }
+}
+
+
 ```
 
 5、函数式接口Predicate的介绍
@@ -238,8 +288,24 @@ public class TestPredicate {
 
 ```
 
+6、函数式接口Supplier介绍
 
+```java
+@FunctionalInterface
+public interface Supplier<T> {
 
-6、高阶函数
+    T get();
+}
 
-如果一个函数接收一个函数作为参数，或者返回一个函数作为返回值，那么该函数就叫做高阶函数。高阶函数通常是指以函数式接口作为参数，或返回值类型为函数式接口的函数。
+public class TestSupplier {
+
+    public static void main(String[] args) {
+
+        Supplier<Integer> supplier = () -> 8;
+        
+        //通过函数引用创建函数式接口的实现类
+        Supplier<String> supplier1 = String::new; 
+    }
+}
+```
+
