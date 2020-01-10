@@ -309,3 +309,152 @@ public class TestSupplier {
 }
 ```
 
+7、Operational详解
+
+Operational是jdk1.8新增的一个final类，同时也指的是解决NonePointException异常的方式。
+
+```java
+public final class Optional<T> {
+    private static final Optional<?> EMPTY = new Optional<>();
+    private final T value;
+
+    private Optional() {
+        this.value = null;
+    }
+
+    public static<T> Optional<T> empty() {
+        @SuppressWarnings("unchecked")
+        Optional<T> t = (Optional<T>) EMPTY;
+        return t;
+    }
+
+    private Optional(T value) {
+        this.value = Objects.requireNonNull(value);
+    }
+
+    public static <T> Optional<T> of(T value) {
+        return new Optional<>(value);
+    }
+
+    public static <T> Optional<T> ofNullable(T value) {
+        return value == null ? empty() : of(value);
+    }
+
+    public T get() {
+        if (value == null) {
+            throw new NoSuchElementException("No value present");
+        }
+        return value;
+    }
+
+    public boolean isPresent() {
+        return value != null;
+    }
+
+    public void ifPresent(Consumer<? super T> consumer) {
+        if (value != null)
+            consumer.accept(value);
+    }
+
+    public Optional<T> filter(Predicate<? super T> predicate) {
+        Objects.requireNonNull(predicate);
+        if (!isPresent())
+            return this;
+        else
+            return predicate.test(value) ? this : empty();
+    }
+
+    public<U> Optional<U> map(Function<? super T, ? extends U> mapper) {
+        Objects.requireNonNull(mapper);
+        if (!isPresent())
+            return empty();
+        else {
+            return Optional.ofNullable(mapper.apply(value));
+        }
+    }
+
+    public<U> Optional<U> flatMap(Function<? super T, Optional<U>> mapper) {
+        Objects.requireNonNull(mapper);
+        if (!isPresent())
+            return empty();
+        else {
+            return Objects.requireNonNull(mapper.apply(value));
+        }
+    }
+
+    public T orElse(T other) {
+        return value != null ? value : other;
+    }
+
+    public T orElseGet(Supplier<? extends T> other) {
+        return value != null ? value : other.get();
+    }
+
+    public <X extends Throwable> T orElseThrow(Supplier<? extends X> exceptionSupplier) throws X {
+        if (value != null) {
+            return value;
+        } else {
+            throw exceptionSupplier.get();
+        }
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Optional)) {
+            return false;
+        }
+
+        Optional<?> other = (Optional<?>) obj;
+        return Objects.equals(value, other.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(value);
+    }
+
+    @Override
+    public String toString() {
+        return value != null
+            ? String.format("Optional[%s]", value)
+            : "Optional.empty";
+    }
+}
+```
+
+Operational是一个**基于值的类**（value-based class）。基于值的类有以下特征：
+
+- 是final的且不可变的，内部可以包含指向可变对象的引用。
+- equals、hashCode、toString三个方法的结果完全取决于实例本身。
+- 不会使用身份敏感的操作，例如(==)。
+- 仅仅是基于equals方法的值决定是否相等，而不是通过==操作。
+- 没有可访问的构造方法（即构造方法都是私有的），创建实例是通过工厂模式创建，并不保证创建实例的一致性。
+- 如果两个对象equals返回true，那么这两个对象可任意交换。
+
+Operational本质上是一个容器，包含一个final值value。
+
+```java
+public class TestOperational {
+    public static void main(String[] args) {
+        String str = "iiii";
+//        String str = null;
+        Optional<String> optional = Optional.ofNullable(str);
+
+        optional.orElse("isEmpty");  //此函数作用为如果value为null，指定一个替代值
+        optional.ifPresent((value) -> System.out.println(value));
+
+        //optional更推荐的用法，也是其常用的用法
+        Person person = new Person();
+//        person.setName("sunwukong");
+        Optional<Person> optional1 = Optional.of(person);
+        System.out.println(optional1.map(thePerson -> thePerson.getName())
+                                     .orElse("noName"));
+    }
+}
+```
+
