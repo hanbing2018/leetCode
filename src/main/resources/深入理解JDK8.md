@@ -454,6 +454,8 @@ public class TestOperational {
         Optional<Person> optional1 = Optional.of(person);
         System.out.println(optional1.map(thePerson -> thePerson.getName())
                                      .orElse("noName"));
+        
+        //注意事项，不要将Optional作为参数或成员变量，因为这不是它的最佳实践
     }
 }
 ```
