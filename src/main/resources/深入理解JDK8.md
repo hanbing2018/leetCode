@@ -460,3 +460,81 @@ public class TestOperational {
 }
 ```
 
+8、方法引用详解
+
+method reference**是lambda表达式的语法糖**，是lambda表达式的特殊情况。可以把方法引用看做是函数指针(function pointer)。
+
+方法引用分为4类：
+
+- 类名::静态方法名
+
+```java
+public class MethodReferenceDemo {
+
+    static int comExample(Person p1, Person p2){
+        return -9;
+    }
+
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("hello");
+        list.add("world");
+
+        list.forEach(new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                System.out.println(s);
+            }
+        });
+
+        list.forEach(s -> System.out.println(s));
+
+        list.forEach(System.out::println);
+        System.out.println("===================================");
+        Person p1 = new Person("sunwukong", 1255);
+        Person p2 = new Person("zhubajie", 108);
+        List<Person> persons = Arrays.asList(p1, p2);
+
+        //list的sort函数需要传入一个Comparator接口,其抽象方法返回值为int，参数为两个Person对象，满足这些条件的静态函数都可以用函数式引用来表示
+        
+/*        persons.sort(new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });*/
+        persons.sort(Person::compareByName);
+        persons.forEach(person -> System.out.println(person.getName()));
+
+        persons.sort(Person::compareByAge);
+        persons.forEach(person -> System.out.println(person.getAge()));
+
+        persons.sort(MethodReferenceDemo::comExample);
+    }
+}
+
+```
+
+- 引用名(对象名)::实例方法名
+
+  在Person中增加两个方法
+
+```java
+    public int compareByNameNoStatic(Person p1, Person p2){
+        return p1.name.compareTo(p2.name);
+    }
+    public int compareByAgeNoStatic(Person p1, Person p2){
+        return p1.age - p2.age;
+    }
+
+```
+
+​	则上述中的persons的排序可以写成如下的形式
+
+```
+        //对象名::实例方法名
+        Person p = new Person();
+        persons.sort(p::compareByNameNoStatic);
+        persons.sort(p::compareByAgeNoStatic);
+```
+
