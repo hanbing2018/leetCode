@@ -1,5 +1,10 @@
 package test;
 
+import com.sun.org.apache.xpath.internal.functions.FunctionMultiArgs;
+
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 /**
  * @author hanbing
  * @create 2020-01-10 12:33
@@ -46,6 +51,23 @@ public class Person {
     }
     public int compareByAgeNoStatic(Person p1, Person p2){
         return p1.age - p2.age;
+    }
+
+    //实例方法
+    public int comByName(Person person){
+        return this.name.compareTo(person.getName());
+    }
+
+    public int comByAge(Person person){
+        return this.age - person.getAge();
+    }
+
+    //构造方法的引用
+    public String getString(Supplier<String> supplier){
+        return supplier.get() + "test";
+    }
+    public String getString2(String str, Function<String, String> function){
+        return function.apply(str);
     }
 
 }

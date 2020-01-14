@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 /**
  * @author hanbing
@@ -16,6 +17,7 @@ public class MethodReferenceDemo {
     static int comExample(Person p1, Person p2){
         return -9;
     }
+
 
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
@@ -62,5 +64,14 @@ public class MethodReferenceDemo {
         Person p = new Person();
         persons.sort(p::compareByNameNoStatic);
         persons.sort(p::compareByAgeNoStatic);
+        System.out.println("===================================");
+
+        //类名::实例方法名
+        persons.sort(Person::comByName);
+        persons.sort(Person::comByAge);
+
+        //构造方法引用
+        p.getString(String::new);  //自动匹配String的无参构造方法
+        p.getString2("hello", String::new); //自动匹配String的参数为一个字符串的构造方法
     }
 }

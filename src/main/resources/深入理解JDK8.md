@@ -538,3 +538,78 @@ public class MethodReferenceDemo {
         persons.sort(p::compareByAgeNoStatic);
 ```
 
+- 类名::实例方法名
+
+Person类中增加两个实例方法
+
+```java
+//实例方法
+    public int comByName(Person person){
+        return this.name.compareTo(person.getName());
+    }
+
+    public int comByAge(Person person){
+        return this.age - person.getAge();
+    }
+```
+
+main中的调用方式为
+
+```java
+//sort接收一个comporator参数，以下写法，会将comByName的调用者作为lambda表达式的第一个参数，comByName的参数作为lambda的其他参数
+persons.sort(Person::comByName);
+persons.sort(Person::comByAge);
+```
+
+- 类名::new    ----引用类的构造方法
+
+```java
+    //Person类中构造方法的引用
+    public String getString(Supplier<String> supplier){
+        return supplier.get() + "test";
+    }
+    public String getString2(String str, Function<String, String> function){
+        return function.apply(str);
+```
+
+main函数中调用上述方法
+
+```java
+//构造方法引用
+p.getString(String::new);  //自动匹配String的无参构造方法,因为getString函数的参数实际上是需要一个返回值为String的无参的函数
+p.getString2("hello", String::new); //自动匹配String的参数为一个字符串的构造方法
+```
+
+9、接口的默认方法
+
+多个接口中有同名的默认方法，且不能构成重载。当类同时实现多个这样的接口时，必须重写这个方法。
+
+```java
+public interface DefaultInterface1 {
+    default void method(){}
+}
+public interface DefaultInterface2 {
+    default void method(){}
+}
+
+```
+
+```java
+public class DefaultInterfaceImpl implements DefaultInterface1, DefaultInterface2 {
+
+    @Override
+    public void method() {
+        //do something
+        
+        //重写method函数，也可以使用  接口名.supper.method()的方式 使用已经定义的默认方法
+//        DefaultInterface1.super.method();
+    }
+}
+```
+
+```java
+public class myClass extends DefaultInterfaceImpl implements DefaultInterface2 {
+	//在这种情况下调用myClass的method方法会使用DefaultInterfaceImpl中的方法，因为java约定类中的方法比接口中的同名方法优先级高
+}
+```
+
