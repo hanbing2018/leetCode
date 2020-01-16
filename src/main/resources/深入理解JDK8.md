@@ -613,3 +613,31 @@ public class myClass extends DefaultInterfaceImpl implements DefaultInterface2 {
 }
 ```
 
+10、流
+
+Stream流的介绍和使用
+
+流由三部分组成：源、0个或多个中间操作、终止操作。
+
+流操作的分类：1惰性求值，2及早求值。
+
+- 流的创建
+
+```java
+Stream stream = Stream.of("sunwukong", "zhbajie", "tangseng");
+
+String[] strs = new String[]{"sunwukong", "zhbajie", "tangseng"};
+Stream stream2 = Stream.of(strs);
+Stream stream3 = Arrays.stream(strs);
+
+List<String> list = Arrays.asList("sunwkong", "zhubajie", "tangseng");
+Stream<String> stream4 = list.stream();
+```
+
+- 流的使用
+
+```java
+IntStream.range(1, 10).forEach(System.out::println);
+IntStream.rangeClosed(1, 10).forEach(System.out::println);
+```
+
