@@ -617,9 +617,9 @@ public class myClass extends DefaultInterfaceImpl implements DefaultInterface2 {
 
 Stream流的介绍和使用
 
-流由三部分组成：源、0个或多个中间操作、终止操作。
+**流由三部分组成：源、0个或多个中间操作、终止操作。**
 
-流操作的分类：1惰性求值，2及早求值。
+**流操作的分类：1惰性求值，2及早求值。**
 
 - 流的创建
 
@@ -639,5 +639,31 @@ Stream<String> stream4 = list.stream();
 ```java
 IntStream.range(1, 10).forEach(System.out::println);
 IntStream.rangeClosed(1, 10).forEach(System.out::println);
+```
+
+Collection提供了stream()会生成流，流不存储值，而是通过管道获取值。对流的操作会生成一个结果，但是不会修改底层数据源。流的toArray方法会返回流泛型类型的数组
+
+```java
+List<String> list = Arrays.asList("sunwkong", "zhubajie", "tangseng");
+//toArray方法，参数为IntFunction的实现类，会将stream的长度作为IntFunction的apply的参数，通过实现apply方法返回包含该stream所有元素的数组
+Object[] objects = list.stream().toArray(length -> new Object[length]);
+String[] strings1 = list.stream().toArray(String[]::new);
+```
+
+Stream的collect方法详解
+
+```java
+/*
+<R> R collect(Supplier<R> supplier,
+                  BiConsumer<R, ? super T> accumulator,
+                  BiConsumer<R, R> combiner);
+*/
+//collect方法,Supplier<R> supplier创建容器确定返回值类型，BiConsumer<R, ? super T> accumulator取出stream中的每个元素进行操作（加入到容器中），BiConsumer<R, R> combiner对容器进行组合并返回值
+//实现Stream转换为list			
+list.stream().collect(() -> new ArrayList<String>(), (theList, value) -> theList.add(value), (list1, list2) -> list1.addAll(list2));
+//实现Stream中所有字符串的拼接
+list.stream().collect(() -> new StringBuilder(),
+                      (theStringBuilder, value) -> theStringBuilder.append(value),
+(stringBuilder1, stringBuilder2) -> stringBuilder1.append(stringBuilder2)).toString();
 ```
 
