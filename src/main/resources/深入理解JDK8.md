@@ -1,6 +1,6 @@
 # java8新特性
 
-1、函数式接口
+#### 1、函数式接口
 
 如果一个接口只有一个抽象方法，那么它就是一个**函数式接口**。
 
@@ -33,7 +33,7 @@ public interface Consumer<T> {
 }
 ```
 
-2、lambda表达式
+#### 2、lambda表达式
 
 需要lambda表达式的原因：java语言的函数不能以函数作为参数和返回值，lambda的出现解决了者一问题。
 
@@ -72,7 +72,7 @@ list.forEach(System.out::print);  //通过方法引用创建函数式接口的�
 
 高阶函数：如果一个函数接收一个函数作为参数，或者返回一个函数作为返回值，那么该函数就叫做高阶函数。高阶函数通常是指以函数式接口作为参数，或返回值类型为函数式接口的函数。
 
-3、函数式接口Function详解
+#### 3、函数式接口Function详解
 
 ```java
 @FunctionalInterface
@@ -119,7 +119,7 @@ public class Test {
 }
 ```
 
-4、函数式接口BiFunction详解
+#### 4、函数式接口BiFunction详解
 
 ```java
 @FunctionalInterface
@@ -200,7 +200,7 @@ public class BinaryOperatorTest {
 
 ```
 
-5、函数式接口Predicate的介绍
+#### 5、函数式接口Predicate的介绍
 
 ```java
 @FunctionalInterface
@@ -288,7 +288,7 @@ public class TestPredicate {
 
 ```
 
-6、函数式接口Supplier介绍
+#### 6、函数式接口Supplier介绍
 
 ```java
 @FunctionalInterface
@@ -309,7 +309,7 @@ public class TestSupplier {
 }
 ```
 
-7、Operational详解
+#### 7、Operational详解
 
 Operational是jdk1.8新增的一个final类，同时也指的是解决NonePointException异常的方式。
 
@@ -460,7 +460,7 @@ public class TestOperational {
 }
 ```
 
-8、方法引用详解
+#### 8、方法引用详解
 
 method reference**是lambda表达式的语法糖**，是lambda表达式的特殊情况。可以把方法引用看做是函数指针(function pointer)。
 
@@ -580,7 +580,7 @@ p.getString(String::new);  //自动匹配String的无参构造方法,因为getSt
 p.getString2("hello", String::new); //自动匹配String的参数为一个字符串的构造方法
 ```
 
-9、接口的默认方法
+#### 9、接口的默认方法
 
 多个接口中有同名的默认方法，且不能构成重载。当类同时实现多个这样的接口时，必须重写这个方法。
 
@@ -613,9 +613,9 @@ public class myClass extends DefaultInterfaceImpl implements DefaultInterface2 {
 }
 ```
 
-10、流
+#### 10、流
 
-Stream流的介绍和使用
+Stream流的介绍和使用，Stream流狭义上是jkd8的一个接口，广义上是java连续处理数据的一种方式。
 
 **流由三部分组成：源、0个或多个中间操作、终止操作。**
 
@@ -641,12 +641,12 @@ IntStream.range(1, 10).forEach(System.out::println);
 IntStream.rangeClosed(1, 10).forEach(System.out::println);
 ```
 
-Collection提供了stream()会生成流，流不存储值，而是通过管道获取值。对流的操作会生成一个结果，但是不会修改底层数据源。流的toArray方法会返回流泛型类型的数组
+Collection提供了stream()会生成流，**流不存储值，而是通过管道获取值。对流的操作会生成一个结果，但是不会修改底层数据源。**流的toArray方法会返回流泛型类型的数组
 
 ```java
 List<String> list = Arrays.asList("sunwkong", "zhubajie", "tangseng");
 //toArray方法，参数为IntFunction的实现类，会将stream的长度作为IntFunction的apply的参数，通过实现apply方法返回包含该stream所有元素的数组
-Object[] objects = list.stream().toArray(length -> new Object[length]);
+Object[] objects = list.stream().toArray(length -> new Object[length]);//必须是stream中泛型的类型或其父类
 String[] strings1 = list.stream().toArray(String[]::new);
 ```
 
@@ -665,5 +665,34 @@ list.stream().collect(() -> new ArrayList<String>(), (theList, value) -> theList
 list.stream().collect(() -> new StringBuilder(),
                       (theStringBuilder, value) -> theStringBuilder.append(value),
 (stringBuilder1, stringBuilder2) -> stringBuilder1.append(stringBuilder2)).toString();
+
+//collect()另几种重载的方法
+//        <R, A> R collect(Collector<? super T, A, R> collector);
+list.stream().collect(Collectors.toList());
+list.stream().collect(Collectors.toSet());
+list.stream().collect(Collectors.toCollection(HashSet::new));
+
+//其他重载方法,了解
+//参数为Collectors.joining()，效果为list中的字符进行拼接
+Collector<CharSequence, ?, String> joining = Collectors.joining();
+list.stream().collect(joining);
+
+String collect = list.stream().collect(Collectors.joining());
+```
+
+Stream中的map方法和flatMap方法也是很重要的方法，通过对stream中每一个元素进行映射实现对流中的各个元素相同的操作
+
+```java
+//stream的map方法可以对stream中每个元素进行映射
+//<R> Stream<R> map(Function<? super T, ? extends R> mapper);
+//以下的语句实现将Stream<String>中的每个元素转换为大写，通过collect转换成List后依次打印输出
+list.stream().map(value -> value.toUpperCase()).collect(Collectors.toList()).forEach(value -> System.out.println(value));
+//上诉语句的等价写法
+list.stream().map(String::toUpperCase).collect(Collectors.toList()).forEach(System.out::println);
+
+//还有一个flatmap函数(扁平化映射)
+Stream<List<Integer>> streamListInt = Stream.of(Arrays.asList(1), Arrays.asList(2, 3), Arrays.asList(4, 5, 6));
+//flatMap会将stream中的每一个list元素中的Integer元素取出进行映射，将每个list元素转换成流，再将每个流"组合"成为一个新的流
+streamListInt.flatMap(theList -> theList.stream()).collect(Collectors.toList()).forEach(System.out::println);
 ```
 
