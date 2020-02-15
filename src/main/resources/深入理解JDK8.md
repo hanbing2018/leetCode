@@ -35,7 +35,7 @@ public interface Consumer<T> {
 
 #### 2、lambda表达式
 
-需要lambda表达式的原因：java语言的函数不能以函数作为参数和返回值，lambda的出现解决了者一问题。
+需要lambda表达式的原因：java语言的函数不能以函数作为参数和返回值，lambda的出现解决了这一问题。
 
 lambda表达式为java提供了函数式编程的功能，必须依附于函数式接口，**实质上是函数式接口的实现对象**。
 
@@ -49,6 +49,7 @@ lambda表达式为java提供了函数式编程的功能，必须依附于函数�
 Consumer<Integer> consumer = integer -> System.out.println(integer);
 
 //lambda使用的示例②
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
 list.forEach(new Consumer<Integer>() {
             @Override
             public void accept(Integer integer) {
@@ -70,7 +71,7 @@ list.forEach((Integer integer) -> System.out.println(integer));
 list.forEach(System.out::print);  //通过方法引用创建函数式接口的实例
 ```
 
-高阶函数：如果一个函数接收一个函数作为参数，或者返回一个函数作为返回值，那么该函数就叫做高阶函数。高阶函数通常是指以函数式接口作为参数，或返回值类型为函数式接口的函数。
+高阶函数：如果一个函数接收一个函数作为参数，或者返回一个函数作为返回值，那么该函数就叫做高阶函数。java中高阶函数通常是指以函数式接口作为参数，或返回值类型为函数式接口的函数。
 
 #### 3、函数式接口Function详解
 
@@ -455,7 +456,7 @@ public class TestOperational {
         System.out.println(optional1.map(thePerson -> thePerson.getName())
                                      .orElse("noName"));
         
-        //注意事项，不要将Optional作为参数或成员变量，因为这不是它的最佳实践
+        //注意事项，不要将Optional作为参数或成员变量，因为这不是它的最佳实践!!!
     }
 }
 ```
