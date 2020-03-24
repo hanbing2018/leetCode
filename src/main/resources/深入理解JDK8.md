@@ -35,7 +35,7 @@ public interface Consumer<T> {
 
 2、lambda表达式
 
-需要lambda表达式的原因：java语言的函数不能以函数作为参数和返回值，lambda的出现解决了者一问题。
+需要lambda表达式的原因：java语言的函数不能以函数作为参数和返回值，lambda的出现解决了这一问题。
 
 lambda表达式为java提供了函数式编程的功能，必须依附于函数式接口，**实质上是函数式接口的实现对象**。
 
@@ -45,10 +45,10 @@ lambda表达式为java提供了函数式编程的功能，必须依附于函数�
 //do something
 }
 
-//lambda使用的示例①
+//lambda使用的示例1
 Consumer<Integer> consumer = integer -> System.out.println(integer);
 
-//lambda使用的示例②
+//lambda使用的示例2
 list.forEach(new Consumer<Integer>() {
             @Override
             public void accept(Integer integer) {
@@ -61,18 +61,29 @@ list.forEach(integer -> System.out.println(integer));
 //integer没有声明类型是因为可以通过类型推断得出，故上述语句等价于
 list.forEach((Integer integer) -> System.out.println(integer)); 
 
-//lambda有几种可以简写的情况，略
-```
-
-补充：**方法引用**也可以创建函数式接口的实例(了解) 
-
-```java
-list.forEach(System.out::print);  //通过方法引用创建函数式接口的实例
+//lambda有几种可以通过上下文简写的情况，略
 ```
 
 高阶函数：如果一个函数接收一个函数作为参数，或者返回一个函数作为返回值，那么该函数就叫做高阶函数。高阶函数通常是指以函数式接口作为参数，或返回值类型为函数式接口的函数。
 
-3、函数式接口Function详解
+3、外部迭代与内部迭代
+
+通过外部的迭代器依次对元素进行访问是外部迭代，如list的for循环
+
+```java
+for(int i=0; i<list.size(); i++){
+    //do something
+}
+```
+
+直接通过容器自带的迭代函数依次访问元素是外部迭代，如list的forEach()函数
+
+```java
+List<Integer> list = new List<>();
+list.forEach(i -> System.out.println(i));
+```
+
+4、函数式接口Function详解
 
 ```java
 @FunctionalInterface
