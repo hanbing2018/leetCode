@@ -1,6 +1,6 @@
 # java8新特性
 
-1、函数式接口
+#### 1、函数式接口
 
 如果一个接口只有一个抽象方法，那么它就是一个**函数式接口**。
 
@@ -66,7 +66,7 @@ list.forEach((Integer integer) -> System.out.println(integer));
 
 高阶函数：如果一个函数接收一个函数作为参数，或者返回一个函数作为返回值，那么该函数就叫做高阶函数。高阶函数通常是指以函数式接口作为参数，或返回值类型为函数式接口的函数。
 
-3、外部迭代与内部迭代
+#### 3、外部迭代与内部迭代
 
 通过外部的迭代器依次对元素进行访问是外部迭代，如list的for循环
 
@@ -76,7 +76,6 @@ for(int i=0; i<list.size(); i++){
 }
 ```
 
-<<<<<<< .merge_file_a07688
 直接通过容器自带的迭代函数依次访问元素是外部迭代，如list的forEach()函数
 
 ```java
@@ -84,13 +83,9 @@ List<Integer> list = new List<>();
 list.forEach(i -> System.out.println(i));
 ```
 
-4、函数式接口Function详解
-=======
 高阶函数：如果一个函数接收一个函数作为参数，或者返回一个函数作为返回值，那么该函数就叫做高阶函数。java中高阶函数通常是指以函数式接口作为参数，或返回值类型为函数式接口的函数。
 
-#### 3、函数式接口Function详解
->>>>>>> .merge_file_a04904
-
+#### 4、函数式接口Function详解
 ```java
 @FunctionalInterface
 public interface Function<T, R> {
@@ -136,7 +131,7 @@ public class Test {
 }
 ```
 
-#### 4、函数式接口BiFunction详解
+#### 5、函数式接口BiFunction详解
 
 ```java
 @FunctionalInterface
@@ -217,7 +212,7 @@ public class BinaryOperatorTest {
 
 ```
 
-#### 5、函数式接口Predicate的介绍
+#### 6、函数式接口Predicate的介绍
 
 ```java
 @FunctionalInterface
@@ -305,7 +300,7 @@ public class TestPredicate {
 
 ```
 
-#### 6、函数式接口Supplier介绍
+#### 7、函数式接口Supplier介绍
 
 ```java
 @FunctionalInterface
@@ -326,7 +321,7 @@ public class TestSupplier {
 }
 ```
 
-#### 7、Operational详解
+#### 8、Operational详解
 
 Operational是jdk1.8新增的一个final类，同时也指的是解决NonePointException异常的方式。
 
@@ -477,7 +472,7 @@ public class TestOperational {
 }
 ```
 
-#### 8、方法引用详解
+#### 9、方法引用详解
 
 method reference**是lambda表达式的语法糖**，是lambda表达式的特殊情况。可以把方法引用看做是函数指针(function pointer)。
 
@@ -597,7 +592,7 @@ p.getString(String::new);  //自动匹配String的无参构造方法,因为getSt
 p.getString2("hello", String::new); //自动匹配String的参数为一个字符串的构造方法
 ```
 
-#### 9、接口的默认方法
+#### 10、接口的默认方法
 
 多个接口中有同名的默认方法，且不能构成重载。当类同时实现多个这样的接口时，必须重写这个方法。
 
@@ -630,7 +625,7 @@ public class myClass extends DefaultInterfaceImpl implements DefaultInterface2 {
 }
 ```
 
-#### 10、流
+#### 11、流
 
 Stream流的介绍和使用，Stream流狭义上是jkd8的一个接口，广义上是java连续处理数据的一种方式。
 
