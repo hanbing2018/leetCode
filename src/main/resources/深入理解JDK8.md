@@ -646,14 +646,15 @@ List<String> list = Arrays.asList("sunwkong", "zhubajie", "tangseng");
 Stream<String> stream4 = list.stream();
 ```
 
-- 流的使用
+- 流的使用举例
 
 ```java
 IntStream.range(1, 10).forEach(System.out::println);
 IntStream.rangeClosed(1, 10).forEach(System.out::println);
+int sum = intStream.map(i -> i*2).reduce(0, Integer::sum);  //求stream中所有int元素的和
 ```
 
-Collection提供了stream()会生成流，**流不存储值，而是通过管道获取值。对流的操作会生成一个结果，但是不会修改底层数据源。**流的toArray方法会返回流泛型类型的数组
+Collection提供了stream()会生成流，**流不存储值，而是通过管道获取值。流的本质是函数式的，对流的操作会生成一个结果，但是不会修改底层数据源。集合可以作为流的底层数据源。**流的toArray方法会返回流泛型类型的数组
 
 ```java
 List<String> list = Arrays.asList("sunwkong", "zhubajie", "tangseng");
@@ -706,5 +707,11 @@ list.stream().map(String::toUpperCase).collect(Collectors.toList()).forEach(Syst
 Stream<List<Integer>> streamListInt = Stream.of(Arrays.asList(1), Arrays.asList(2, 3), Arrays.asList(4, 5, 6));
 //flatMap会将stream中的每一个list元素中的Integer元素取出进行映射，将每个list元素转换成流，再将每个流"组合"成为一个新的流
 streamListInt.flatMap(theList -> theList.stream()).collect(Collectors.toList()).forEach(System.out::println);
+
+//Stream.generate() 静态方法，生成流的一种方式
+Stream<String> generate = Stream.generate(() -> "something");
+generate.findFirst().ifPresent(System.out::println);
+//Stream.iterate() 静态方法，通过种子生成一个无限的串行流(?)，必须配合limit()使用
+Stream.iterate(1, item -> item+2).limit(6).forEach(System.out::println);
 ```
 
