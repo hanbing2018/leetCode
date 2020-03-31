@@ -8,7 +8,7 @@ import java.rmi.MarshalException;
  */
 
 //https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/
-public class _03_二维数组中的查找 {
+public class _04_二维数组中的查找 {
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
         if (matrix.length==0 || matrix[0].length==0) return false;
         int m = 0;

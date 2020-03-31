@@ -11,7 +11,7 @@ import java.util.PrimitiveIterator;
  */
 
 //https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/
-public class _06_重建二叉树 {
+public class _07_重建二叉树 {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         return buildTreeCore(preorder, 0, preorder.length-1, inorder, 0, inorder.length -1);
     }
