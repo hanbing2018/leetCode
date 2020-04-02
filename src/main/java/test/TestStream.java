@@ -76,5 +76,22 @@ public class TestStream {
         generate.findFirst().ifPresent(System.out::println);
         //Stream.iterate()
         Stream.iterate(1, item -> item+2).limit(6).forEach(System.out::println);
+
+        //Stream综合应用案例：Stream.iterate(1, item -> item+2).limit(6)，找出流中大于2的元素，然后乘以2，忽略前两个元素，
+        //再取前两个元素，再求和
+        System.out.println(Stream.iterate(1, item -> item + 2).limit(6).filter(item -> item > 2).mapToInt(item -> item * 2).skip(2).limit(2).sum());
+
+        //IntStream的summaryStatistics()函数可以方便得得到需要的结果
+        IntSummaryStatistics intSummaryStatistics = Stream.iterate(1, item -> item + 2).limit(6).filter(item -> item > 2).mapToInt(item -> item * 2).skip(2).limit(2).summaryStatistics();
+        intSummaryStatistics.getAverage();
+        intSummaryStatistics.getCount();
+        intSummaryStatistics.getSum();
+        intSummaryStatistics.getMax();
+
+        //流只能使用一次，不可重复使用，以下代码会报错
+        Stream<Integer> streamInteger = Stream.of(1, 2, 3);
+        streamInteger.filter(item -> item>2); //流使用了一次，生成了新的流
+//        streamInteger.distinct();  //错误使用！！！流不能被重复使用
+
     }
 }
