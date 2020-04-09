@@ -46,13 +46,13 @@ public class _19_正则表达式匹配 {
 
         }
 
-        for (int i = 0; i <= slen; i++) {
-            for (int j=0; j<=plen;j++){
-
-                System.out.print(match[i][j]+" ");
-            }
-            System.out.println();
-        }
+//        for (int i = 0; i <= slen; i++) {
+//            for (int j=0; j<=plen;j++){
+//
+//                System.out.print(match[i][j]+" ");
+//            }
+//            System.out.println();
+//        }
         return match[slen][plen];
     }
 
