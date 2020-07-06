@@ -1,10 +1,5 @@
 package 剑指offer;
 
-import sun.net.www.http.PosterOutputStream;
-
-import java.beans.EventHandler;
-import java.util.concurrent.atomic.AtomicBoolean;
-
 /**
  * @author hanbing
  * @create 2020-04-17 11:59
@@ -26,7 +21,7 @@ public class _33_二叉搜索树的后序遍历序列 {
                 index++;
             }else break;
         }
-        int indexR = index;  //此时index只想第一个比末尾数大的数
+        int indexR = index;  //此时index指向第一个比末尾数大的数，或者指向末尾数
         while (indexR<end){
             if (postorder[indexR] > postorder[end]){
                 indexR++;

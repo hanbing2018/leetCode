@@ -1,8 +1,5 @@
 package 剑指offer;
 
-import 链表.ListNode;
-
-import java.time.temporal.ValueRange;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -27,8 +24,8 @@ public class _34_二叉树中和为某一值的路径 {
         if (root.left==null && root.right==null && sum==0){
             lists.add(new LinkedList<>(list));
         }
-        pathSum(root.left, sum);
-        pathSum(root.right, sum);
+        pathSumCore(root.left, sum);
+        pathSumCore(root.right, sum);
         list.removeLast();
     }
 
