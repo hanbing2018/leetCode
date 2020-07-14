@@ -10,6 +10,8 @@ import java.util.Queue;
 
 //https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/
 public class _230_二叉搜索树中第K小的元素 {
+
+    //如果要求第K大的元素，把队列换成栈就可以了
     public int kthSmallest(TreeNode root, int k) {
         Queue<Integer> queue = new LinkedList<>();
         zhongxu(queue, root);
