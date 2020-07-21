@@ -31,5 +31,39 @@ public class _5_最长回文子串 {
         return new String(cs, begin, maxLen);
     }
 
-    //方法二：
+
+    //方法二：扩展中心法
+    public String longestPalindromeDp2(String s) {
+        if (s == null) return null;
+        char[] cs = s.toCharArray();
+        if (cs.length <= 1) return s;
+        // 最长回文子串的长度（至少是1）
+        int maxLen = 1;
+        // 最长回文子串的开始索引
+        int begin = 0;
+
+        int i = 0;
+        while (i < cs.length){
+            int r = i;
+            int l = i - 1;
+            while (++r < cs.length && cs[i]==cs[r]);
+            i = r;
+
+            while (l>=0 && r<cs.length && cs[l]==cs[r]){
+                l--;
+                r++;
+            }
+
+            int b = l+1;
+            int len = r - l -1;
+            if (len > maxLen){
+                begin = b;
+                maxLen = len;
+            }
+        }
+
+        return new String(cs, begin, maxLen);
+    }
+
+
 }
