@@ -11,6 +11,10 @@ import java.util.Queue;
 //https://leetcode-cn.com/problems/binary-search-tree-iterator/
 public class _173_二叉搜索树迭代器 {
 
+    /**
+     * 用一个成员队列实现依次装入树的中序遍历的值，next()方法就是quene.pull   hashNext()方法就是quene.isEmpy
+     */
+
     Queue<Integer> queue = new LinkedList<>();
 
     public _173_二叉搜索树迭代器(TreeNode root) {

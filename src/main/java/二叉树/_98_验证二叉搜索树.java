@@ -11,6 +11,12 @@ import java.util.Queue;
 
 //https://leetcode-cn.com/problems/validate-binary-search-tree/
 public class _98_验证二叉搜索树 {
+
+    /**
+     * 对二叉树进行中序遍历，把val放入有序list中，依次取出list中的元素查看是否是单调递增即可
+     * @param root
+     * @return
+     */
     public boolean isValidBST(TreeNode root) {
         Queue<Integer> queue = new LinkedList<>();
 

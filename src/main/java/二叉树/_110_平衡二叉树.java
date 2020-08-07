@@ -8,6 +8,13 @@ package 二叉树;
 //https://leetcode-cn.com/problems/balanced-binary-tree/
 public class _110_平衡二叉树 {
 
+    /**
+     * 递归算法；
+     *      1. 编写函数，递归算出以某节点为根节点的树的高度
+     *      2. 递归判断根节点左右子树高度差是否小于1
+     * @param root
+     * @return
+     */
     public boolean isBalanced(TreeNode root) {
         if (root==null) return true;
 
@@ -20,7 +27,7 @@ public class _110_平衡二叉树 {
     }
 
 
-    //计算节点的高度
+    //计算以该节点为root的树的高度
     private int hight(TreeNode node) {
         if (node==null) return 0;
         return 1 + Math.max(hight(node.left), hight(node.right));

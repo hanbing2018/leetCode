@@ -1,7 +1,5 @@
 package 二叉树;
 
-import sun.reflect.generics.tree.Tree;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -16,13 +14,13 @@ import java.util.Queue;
 public class _104_二叉树的最大深度 {
 
     //二叉树的高度
-    //递归
+    //方法一：递归
     public int maxDepth(TreeNode root) {
         if (root ==null) return 0;
         return 1 + Math.max(maxDepth(root.left),maxDepth(root.right));
     }
 
-    //非递归
+    //方法二：非递归。层序遍历，树有多少层高度就是多少
     public int maxDepth2(TreeNode root) {
         if (root ==null) return 0;
         int hight = 0;
