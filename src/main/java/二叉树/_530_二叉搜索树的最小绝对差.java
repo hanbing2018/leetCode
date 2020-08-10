@@ -1,7 +1,5 @@
 package 二叉树;
 
-import sun.text.resources.cldr.naq.FormatData_naq;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -12,6 +10,12 @@ import java.util.Queue;
 
 //https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/solution/dui-yu-er-cha-sou-suo-shu-ren-yi-liang-dian-chai-d/
 public class _530_二叉搜索树的最小绝对差 {
+
+    /**
+     * 中序遍历后比较每两个相邻元素的差值，差值最小的为结果
+     * @param root
+     * @return
+     */
     public int getMinimumDifference(TreeNode root) {
         Queue<Integer> queue = new LinkedList<>();
 
