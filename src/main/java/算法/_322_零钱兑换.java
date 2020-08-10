@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class _322_零钱兑换 {
 
     /**
-     * 用动态规划dp，依次求出amount为1,2,3.。。的结果
+     * 用动态规划dp，依次求出amount为1,2,3.。。dp[amount]的结果
      * @param coins
      * @param amount
      * @return
