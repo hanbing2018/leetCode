@@ -10,6 +10,12 @@ import java.util.*;
 //https://leetcode-cn.com/problems/intersection-of-two-arrays/
 public class _349_两个数组的交集 {
 
+    /**
+     * 用两个Set去重后，遍历一个Set，判断是否被第二个Set包含，是则属于交集
+     * @param nums1
+     * @param nums2
+     * @return
+     */
     public int[] intersection(int[] nums1, int[] nums2) {
         Set<Integer> set1 = new HashSet<>();
         Set<Integer> set2 = new HashSet<>();
