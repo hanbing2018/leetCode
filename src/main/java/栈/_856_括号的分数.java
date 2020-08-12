@@ -35,7 +35,7 @@ public class _856_括号的分数 {
             }else {
                 left--;
                 if (S.charAt(i-1) == '(')
-                ans += (1>>left);
+                ans += (1<<left);
             }
         }
         return ans;
