@@ -1,7 +1,5 @@
 package 链表;
 
-import java.util.List;
-
 /**
  * @author hanbing
  * @create 2020-04-07 11:31
@@ -9,6 +7,13 @@ import java.util.List;
 
 //https://leetcode-cn.com/problems/add-two-numbers/
 public class _2_两数相加 {
+
+    /**
+     * 位对齐，依次相加取个位数，保留进位数参与下一位的相加
+     * @param l1
+     * @param l2
+     * @return
+     */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode newsum = new ListNode(-1);
         ListNode tail = newsum;
