@@ -1,8 +1,5 @@
 package 队列;
 
-import jdk.nashorn.internal.ir.WhileNode;
-
-import java.lang.reflect.WildcardType;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -13,6 +10,12 @@ import java.util.Queue;
 
 //https://leetcode-cn.com/problems/implement-stack-using-queues/
 public class _225_用队列实现栈 {
+
+    /**
+     * 用两个队列A B，始终保持其中一个队列为空。
+     * 添加：将元素添加到空队列A中，然后将另一个队列B元素依次添加到A中
+     * 取出：哪个队列不为空就从中poll一个
+     */
 
     Queue<Integer> queueIn = new LinkedList<>();
     Queue<Integer> queueOut = new LinkedList<>();
