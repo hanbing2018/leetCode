@@ -12,6 +12,11 @@ import java.util.Queue;
 //https://leetcode-cn.com/problems/squares-of-a-sorted-array/
 public class _977_有序数组的平方 {
 
+    /**
+     * 平方后加入到最小堆，依次取出最小堆的数值即为结果
+     * @param A
+     * @return
+     */
     public int[] sortedSquares(int[] A) {
         if (A==null || A.length==0) return new int[0];
 
