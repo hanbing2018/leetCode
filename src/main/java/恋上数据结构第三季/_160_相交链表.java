@@ -6,7 +6,7 @@ package 恋上数据结构第三季;
  */
 
 //https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
-public class todo_160_相交链表 {
+public class _160_相交链表 {
 
 
     //两种方法
