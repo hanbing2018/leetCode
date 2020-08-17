@@ -1,7 +1,5 @@
 package 栈;
 
-import sun.security.util.Length;
-
 import java.util.LinkedList;
 import java.util.Stack;
 
@@ -12,6 +10,12 @@ import java.util.Stack;
 
 //https://leetcode-cn.com/problems/basic-calculator/
 public class _224_基本计算器 {
+
+    /**
+     * 方法一：利用两个栈实现，详细见注释
+     * @param s
+     * @return
+     */
     public int calculate(String s) {
         Stack<String> stack = new Stack<String>();
         Stack<String> stackSimp = new Stack<String>();
@@ -20,18 +24,19 @@ public class _224_基本计算器 {
         int len = s.length();
         for (int i=0;i<len;i++){  //循环遍历字符串的每一个字符
             tems = s.substring(i,i+1);
-            if (tems.equals(" ")){  //如果是空格
+            if (tems.equals(" ")){  //如果是空格，跳过
                 continue;
             }
-            if (tems.equals("(")){ //如果是左括号，加入到栈中
+            if (tems.equals("(")){ //如果是左括号，加入到栈stack中
                 stack.push(tems);
                 continue;
             }
             if (tems.equals(")")){  //如果是右括号，则计算此右括号到左括号的表达式的值
                 String temm;
-                while (!(temm=stack.pop()).equals("(")){
+                while (!(temm=stack.pop()).equals("(")){  //将括号内的表达式放入栈stackSimp中
                     stackSimp.push(temm);
                 }
+                //将计算结果放入到stack中，此时已经去掉了一对括号
                 stack.push(String.valueOf(calculateSimple(stackSimp)));
                 continue;
             }
@@ -42,6 +47,7 @@ public class _224_基本计算器 {
 
             //如果是数值，则加入到栈中
             int sum = Integer.parseInt(tems);
+            //数值可能不是个位数，比如332，必须把这几个字符转化为一个数字字符串放入stack中
             while((i+1)< len && Character.isDigit(s.charAt(i+1))){
                 i++;
                 sum = sum*10 + Integer.parseInt(s.substring(i,i+1));
@@ -49,6 +55,7 @@ public class _224_基本计算器 {
             stack.push(String.valueOf(sum));
         }
 
+        //此时已经没有括号了，直接计算最终的值
         while (!stack.isEmpty()){
             stackSimp.push(stack.pop());
         }
@@ -56,6 +63,7 @@ public class _224_基本计算器 {
         return calculateSimple(stackSimp);
     }
 
+    //计算一个没有括号的计算式的值
     public int calculateSimple(Stack<String> st){
         String tem1;
         String temf;
