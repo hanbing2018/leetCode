@@ -14,6 +14,14 @@ package 排序;
             你可以假设 nums1 有足够的空间（空间大小大于或等于 m + n）来保存 nums2 中的元素*/
 public class _88_合并两个有序数组 {
 
+
+    /**
+     * 从后往前进行排序是最佳思路
+     * @param nums1
+     * @param m
+     * @param nums2
+     * @param n
+     */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int p = m-- + n-- - 1;
         while (m >= 0 && n >= 0) {
