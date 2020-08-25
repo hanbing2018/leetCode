@@ -7,6 +7,14 @@ package 剑指offer;
 
 //https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/
 public class _07_重建二叉树 {
+
+    /**
+     * 递归方式。
+     * 每次递归确定当前遍历的根节点。
+     * @param preorder
+     * @param inorder
+     * @return
+     */
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         return buildTreeCore(preorder, 0, preorder.length-1, inorder, 0, inorder.length -1);
     }

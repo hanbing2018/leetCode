@@ -7,6 +7,12 @@ package 剑指offer;
 
 //https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/submissions/
 public class _05_替换空格 {
+
+    /**
+     * 遍历原字符串，遇到空格则替换。时间复杂度O(n)
+     * @param s
+     * @return
+     */
     public String replaceSpace(String s) {
         int len = s.length();
         char[] charArray = new char[len*3];
