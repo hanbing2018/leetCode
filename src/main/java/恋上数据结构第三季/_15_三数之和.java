@@ -13,6 +13,13 @@ import java.util.List;
 //https://leetcode-cn.com/problems/3sum/
 public class _15_三数之和 {
 
+    /**
+     * 用三指针完成遍历。
+     * 关键点：1，对数组进行排序。2，去重。
+     * 时间复杂度O(n^2)
+     * @param nums
+     * @return
+     */
     public List<List<Integer>> threeSum(int[] nums) {
         if (nums == null) return null;
         List<List<Integer>> res = new ArrayList<>();
