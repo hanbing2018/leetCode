@@ -7,6 +7,14 @@ package 剑指offer;
 
 //https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/
 public class _13_机器人的运动范围 {
+
+    /**
+     * 回溯算法，从开始位置开始回溯判断，将可以移动过去的位置设置为ture，最后返回为true的数量
+     * @param m
+     * @param n
+     * @param k
+     * @return
+     */
     public int movingCount(int m, int n, int k) {
         boolean[][] visited = new boolean[m][n];
         moving(0, 0, m, n, k, visited);
