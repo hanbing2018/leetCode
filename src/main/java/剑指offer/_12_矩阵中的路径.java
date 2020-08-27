@@ -7,6 +7,13 @@ package 剑指offer;
 
 //https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/
 public class _12_矩阵中的路径 {
+
+    /**
+     * 回溯算法，遍历二维数组的每个位置作为起点，existCore函数通过回溯来确定是否有路径
+     * @param board
+     * @param word
+     * @return
+     */
     public boolean exist(char[][] board, String word) {
         int rows = board.length;
         int cols = board[0].length;
