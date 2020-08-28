@@ -1,6 +1,6 @@
 #### java核心知识：集合体系、多线程并发编程、jvm
 
-#### ssm(加springboot)框架：源码，整合使用(特别是MyBatis)	
+#### ssm(加springboot)框架：源码，整合使用(特别是MyBatis)
 
 #### mysql高级调优，redis
 
@@ -12,7 +12,7 @@
 
 ##### 分布式常见解决方案
 
-*jenkins*
+*jenkins(所写文档基本使用总结已在部门内部作为手册流传)*
 
 *linux(rhce证书)*
 
