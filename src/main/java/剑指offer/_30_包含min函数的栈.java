@@ -9,6 +9,11 @@ import java.util.Stack;
 
 //https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/
 public class _30_包含min函数的栈 {
+
+    /**
+     * 用两个栈实现，一个栈存数据，另一个存当前最小值
+     */
+
     private Stack<Integer> stack;
     private Stack<Integer> stackMin;  //存储当前的最小值
 

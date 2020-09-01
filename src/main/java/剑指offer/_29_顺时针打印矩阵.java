@@ -7,6 +7,12 @@ package 剑指offer;
 
 //https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/
 public class _29_顺时针打印矩阵 {
+
+    /**
+     * 本题思路很容易想到，难点在于边界条件的判断。面试高频，重点关注此题！
+     * @param matrix
+     * @return
+     */
     public int[] spiralOrder(int[][] matrix) {
         int cows = matrix.length;
         if (cows==0) return new int[0];

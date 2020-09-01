@@ -7,6 +7,12 @@ package 剑指offer;
 
 //https://leetcode-cn.com/problems/diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian-lcof/submissions/
 public class _21_调整数组顺序使奇数位于偶数前面 {
+
+    /**
+     * 双指针问题，一个指针指向偶数，另一个指向奇数，向中间移动
+     * @param nums
+     * @return
+     */
     public int[] exchange(int[] nums) {
         if (nums==null || nums.length==0 || nums.length==1) return nums;
         int i = 0;

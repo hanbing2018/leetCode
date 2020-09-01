@@ -8,7 +8,12 @@ package 剑指offer;
 //https://leetcode-cn.com/problems/dui-cheng-de-er-cha-shu-lcof
 public class _28_对称的二叉树 {
 
-    //方法一：递归
+    /**
+     * 方法一：递归
+     *递归判断左右两个子树是否相等即可
+     * @param root
+     * @return
+     */
     public boolean isSymmetric(TreeNode root) {
         if (root==null) return true; //此题中规定root为null时为对称的
         return isTwoTreeSymmetric(root.left, root.right);

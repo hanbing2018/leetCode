@@ -8,7 +8,11 @@ package 剑指offer;
 //https://leetcode-cn.com/problems/zheng-ze-biao-da-shi-pi-pei-lcof/
 public class _19_正则表达式匹配 {
     public boolean isMatch(String s, String p) {
-       //动态规划算法
+
+        /**
+         * 此题难度 难
+         */
+        //动态规划算法
         if (s == null || p == null) return false;
         int slen = s.length();
         int plen = p.length();

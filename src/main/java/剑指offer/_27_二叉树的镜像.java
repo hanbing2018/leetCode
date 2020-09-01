@@ -7,6 +7,12 @@ package 剑指offer;
 
 //https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/
 public class _27_二叉树的镜像 {
+
+    /**
+     * 递归翻转左子树和右子树即可
+     * @param root
+     * @return
+     */
     public TreeNode mirrorTree(TreeNode root) {
         if (root == null) return null;
         TreeNode newRoot = new TreeNode(root.val);
