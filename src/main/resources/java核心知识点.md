@@ -3,10 +3,11 @@
 #### ssm(加springboot)框架：源码，整合使用(特别是MyBatis)
 
 #### mysql高级调优，redis
+#### 消息中间件kafka
 
-#### 网络通信(了解netty)
+#### 网络通信(netty)
 
-#### 常用数据结构与算法
+#### 常见数据结构与算法
 
 ##### Tomcat&Nginx
 
