@@ -3,11 +3,12 @@
 #### ssm(加springboot)框架：源码，整合使用(特别是MyBatis)
 
 #### mysql高级调优，redis
-#### 消息中间件kafka
 
-#### 网络通信(netty)
+#### 熟悉消息中间件kafka
 
-#### 常见数据结构与算法
+#### 掌握网络io的相关概念。理解bio、nio、select、epoll的原理，了解netty
+
+#### 熟悉常见数据结构与算法
 
 ##### Tomcat&Nginx
 
