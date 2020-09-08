@@ -54,4 +54,38 @@ public class _25_K个一组翻转链表 {
         head.next = next;
         return newHead;
     }
+
+
+    /**
+     * 方法二：同样也是利用递归，利用反转[a, b)链表的函数进行递归翻转
+     * @param head
+     * @param k
+     * @return
+     */
+    public ListNode reverseKGroup2(ListNode head, int k) {
+        ListNode b = head;
+        for (int i = 0; i < k; i++) {
+            if (b==null) return head;
+            b = b.next;
+        }
+        ListNode newHead = reverse(head, b);
+        head.next = reverseKGroup(b, k);
+        return newHead;
+
+    }
+
+    //翻转链表从头节点到end节点（不包括end节点）
+    private ListNode reverse(ListNode head, ListNode end){
+        ListNode saveHead = head;   //head始终指向同一个节点
+        ListNode newHead = null;
+        ListNode tem = null;
+        while (saveHead!=end){
+            tem = saveHead.next;
+            saveHead.next = newHead;
+            newHead = saveHead;
+            saveHead = tem;
+        }
+        head.next = end;
+        return newHead;
+    }
 }
