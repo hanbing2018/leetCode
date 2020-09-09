@@ -1,6 +1,6 @@
 package 链表;
 
-public class _92_翻转链表_II {
+public class _92_反转链表_II {
 
     //https://leetcode-cn.com/problems/reverse-linked-list-ii/
 
