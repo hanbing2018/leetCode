@@ -10,7 +10,12 @@ import java.util.Map;
 
 //https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof/
 public class _35_复杂链表的复制 {
-    //方法一：利用map存储原节点与新节点的对应关系，推荐
+    
+    /**
+     * 方法一：利用map存储原节点与新节点的对应关系，推荐
+     * @param head
+     * @return
+     */
     public Node copyRandomList(Node head) {
         if (head==null) return null;
         Node newhead = new Node(-1);
