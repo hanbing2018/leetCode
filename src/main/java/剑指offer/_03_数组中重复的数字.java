@@ -11,7 +11,7 @@ public class _03_数组中重复的数字 {
     /**
      * 方法一：此方法为书中的方法，不具有普适性。时间复杂度O(n),空间复杂度O(1)，会改变原始数组。
      * 因为长度为n的数组数字范围为0-n-1，所以从index=0开始遍历。nums[i]==i(数值等于下标)则继续，不相等则
-     * 判断nums[i] == nums[nums[i]]，为true则找到了一个重复数字。为false则交换值nums[i]与nums[nums[i]]，使得nums[nums[i]数值等于下标。
+     * 判断nums[i] == nums[nums[i]]，为true则找到了一个重复数字。为false则交换值nums[i]与nums[nums[i]]，使得nums[nums[i]]数值等于下标。
      * @param nums
      * @return
      */
