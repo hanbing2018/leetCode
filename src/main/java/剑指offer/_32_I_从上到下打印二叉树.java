@@ -15,25 +15,25 @@ import java.util.Queue;
 //https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/
 public class _32_I_从上到下打印二叉树 {
     public int[] levelOrder(TreeNode root) {
-        if (root==null) return null;
+        if (root == null) return null;
         Queue<TreeNode> queue = new LinkedList<>();
         List<Integer> list = new ArrayList<>();
         queue.offer(root);
         int curCount = 1;
         int nextCount = 0;
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             TreeNode poll = queue.poll();
             list.add(poll.val);
             curCount--;
-            if (poll.left!=null) {
+            if (poll.left != null) {
                 queue.offer(poll.left);
                 nextCount++;
             }
-            if (poll.right!=null) {
+            if (poll.right != null) {
                 queue.offer(poll.right);
                 nextCount++;
             }
-            if (curCount==0){
+            if (curCount == 0) {
                 curCount = nextCount;
                 nextCount = 0;
             }

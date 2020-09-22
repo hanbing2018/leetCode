@@ -23,13 +23,13 @@ public class BinaryOperatorTest {
         System.out.println(test.minString("sunwukong", "tangseng", (o1, o2) -> o1.charAt(0) - o2.charAt(0)));
     }
 
-    public int method(int a, int b, BinaryOperator<Integer> binaryOperator){
+    public int method(int a, int b, BinaryOperator<Integer> binaryOperator) {
         return binaryOperator.apply(a, b);
     }
 
 
     //定义一个比较函数，返回较小的字符串，比较规则在调用时传入
-    public String minString(String s1, String s2, Comparator<String> comparator){
+    public String minString(String s1, String s2, Comparator<String> comparator) {
         return BinaryOperator.minBy(comparator).apply(s1, s2);
     }
 }

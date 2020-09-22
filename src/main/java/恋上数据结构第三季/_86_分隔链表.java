@@ -10,6 +10,7 @@ public class _86_分隔链表 {
 
     /**
      * 先将链表节点依次分隔到左右两个链表，再将两个链表连接
+     *
      * @param head
      * @param x
      * @return
@@ -22,11 +23,11 @@ public class _86_分隔链表 {
 
         ListNode rHead = new ListNode(-1);
         ListNode rTail = rHead;
-        while (head!=null){
-            if (head.val < x){
+        while (head != null) {
+            if (head.val < x) {
                 lTail.next = head;
                 lTail = head;
-            }else {
+            } else {
                 rTail.next = head;
                 rTail = head;
             }

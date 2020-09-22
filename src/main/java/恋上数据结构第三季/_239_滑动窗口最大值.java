@@ -10,29 +10,30 @@ public class _239_滑动窗口最大值 {
     /**
      * 方法一：时间复杂度为O(n)
      * 此题为困难，要求时间复杂度为O(n)。用一个存储索引值的双端队列实现
+     *
      * @param nums
      * @param k
      * @return
      */
     public int[] maxSlidingWindow(int[] nums, int k) {
         //特殊情况检查
-        if (k==1) return nums;
+        if (k == 1) return nums;
 
-        int[] res = new int[nums.length - k +1];
+        int[] res = new int[nums.length - k + 1];
         Deque<Integer> deque = new LinkedList<>();
         int i = 0;
         int j = 0;
-        while (i< nums.length){
+        while (i < nums.length) {
             //从尾部依次删除比nums[i]小的值，将nums[i]填入到队列中
-            while (!deque.isEmpty() && nums[deque.peekLast()]<nums[i]){
+            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
                 deque.pollLast();
             }
             deque.offerLast(i);
 
             //队列中最大值索引已经超出当前窗口，则移除
             j = i - k + 1;
-            if (j>=0 ){
-                if (deque.peekFirst()<j) deque.pollFirst();
+            if (j >= 0) {
+                if (deque.peekFirst() < j) deque.pollFirst();
                 res[j] = nums[deque.peekFirst()];
             }
             i++;
@@ -43,6 +44,7 @@ public class _239_滑动窗口最大值 {
 
     /**
      * 方法二：时间复杂度为O(k*n),实际速度可能比方法一更快
+     *
      * @param nums
      * @param k
      * @return

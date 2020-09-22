@@ -16,7 +16,7 @@ public class _230_二叉搜索树中第K小的元素 {
         Queue<Integer> queue = new LinkedList<>();
         zhongxu(queue, root);
         int ans = 0;
-        for (int i=0;i<k;i++){
+        for (int i = 0; i < k; i++) {
             ans = queue.poll();
         }
 
@@ -24,9 +24,9 @@ public class _230_二叉搜索树中第K小的元素 {
     }
 
     private void zhongxu(Queue<Integer> queue, TreeNode root) {
-        if (root==null) return;
+        if (root == null) return;
 
-        zhongxu(queue,root.left);
+        zhongxu(queue, root.left);
 
         queue.offer(root.val);
 

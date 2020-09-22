@@ -10,10 +10,10 @@ public class _83_删除排序链表中的重复元素 {
 
     public ListNode deleteDuplicates(ListNode head) {
         ListNode tmp = head;
-        while (tmp != null && tmp.next != null){
-            if (tmp.val == tmp.next.val){
+        while (tmp != null && tmp.next != null) {
+            if (tmp.val == tmp.next.val) {
                 tmp.next = tmp.next.next;
-            }else {
+            } else {
                 tmp = tmp.next;
             }
         }

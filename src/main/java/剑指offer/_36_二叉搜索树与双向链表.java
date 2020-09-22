@@ -5,13 +5,13 @@ package 剑指offer;
 public class _36_二叉搜索树与双向链表 {
 
     public Node treeToDoublyList(Node root) {
-        if (root==null) return null;
+        if (root == null) return null;
         Node core = core(root);
-        while (core.left!=null){
+        while (core.left != null) {
             core = core.left;
         }
         Node last = core;
-        while (last.right!=null){
+        while (last.right != null) {
             last = last.right;
         }
         core.left = last;
@@ -20,22 +20,22 @@ public class _36_二叉搜索树与双向链表 {
         return core;
     }
 
-    public Node core(Node root){
+    public Node core(Node root) {
         if (root == null) return null;
-        if (root.left==null && root.right==null) return root;
+        if (root.left == null && root.right == null) return root;
 
         Node left = core(root.left);
         Node right = core(root.right);
 
-        if (left!=null){
-            while (left.right!=null){
+        if (left != null) {
+            while (left.right != null) {
                 left = left.right;
             }
             root.left = left;
             left.right = root;
         }
-        if (right!=null){
-            while (right.left!=null){
+        if (right != null) {
+            while (right.left != null) {
                 right = right.left;
             }
             root.right = right;
@@ -49,13 +49,14 @@ public class _36_二叉搜索树与双向链表 {
         public Node left;
         public Node right;
 
-        public Node() {}
+        public Node() {
+        }
 
         public Node(int _val) {
             val = _val;
         }
 
-        public Node(int _val,Node _left,Node _right) {
+        public Node(int _val, Node _left, Node _right) {
             val = _val;
             left = _left;
             right = _right;

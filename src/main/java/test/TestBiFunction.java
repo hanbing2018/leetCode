@@ -9,10 +9,9 @@ import java.util.function.Function;
  */
 public class TestBiFunction {
 
-    public int compute(int i, int j, BiFunction<Integer, Integer, Integer> biFunction, Function<Integer, Integer> function){
+    public int compute(int i, int j, BiFunction<Integer, Integer, Integer> biFunction, Function<Integer, Integer> function) {
         return biFunction.andThen(function).apply(i, j);
     }
-
 
 
     public static void main(String[] args) {

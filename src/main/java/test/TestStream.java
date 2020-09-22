@@ -31,7 +31,7 @@ public class TestStream {
 
         IntStream.range(1, 10).forEach(System.out::println);
         IntStream.rangeClosed(1, 10).forEach(System.out::println);
-        IntStream.rangeClosed(1, 10).map(i -> i*2).reduce(0, Integer::sum);  //求stream中所有int元素的和
+        IntStream.rangeClosed(1, 10).map(i -> i * 2).reduce(0, Integer::sum);  //求stream中所有int元素的和
 
         //toArray方法，参数为IntFunction的实现类，会将stream的长度作为IntFunction的apply的参数，通过实现apply方法返回包含该stream所有元素的数组
         Object[] objects = list.stream().toArray(length -> new String[length]);  //必须是stream中泛型的类型或其父类
@@ -43,8 +43,8 @@ public class TestStream {
         list.stream().collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
         //实现Stream中所有字符串的拼接
         list.stream().collect(() -> new StringBuilder(),
-                              (theStringBuilder, value) -> theStringBuilder.append(value),
-                              (stringBuilder1, stringBuilder2) -> stringBuilder1.append(stringBuilder2)).toString();
+                (theStringBuilder, value) -> theStringBuilder.append(value),
+                (stringBuilder1, stringBuilder2) -> stringBuilder1.append(stringBuilder2)).toString();
 
         //collect()另几种重载的方法
 //        <R, A> R collect(Collector<? super T, A, R> collector);
@@ -75,7 +75,7 @@ public class TestStream {
         Stream<String> generate = Stream.generate(() -> "something");
         generate.findFirst().ifPresent(System.out::println);
         //Stream.iterate()
-        Stream.iterate(1, item -> item+2).limit(6).forEach(System.out::println);
+        Stream.iterate(1, item -> item + 2).limit(6).forEach(System.out::println);
 
         //Stream综合应用案例：Stream.iterate(1, item -> item+2).limit(6)，找出流中大于2的元素，然后乘以2，忽略前两个元素，
         //再取前两个元素，再求和
@@ -90,7 +90,7 @@ public class TestStream {
 
         //流只能使用一次，不可重复使用，以下代码会报错
         Stream<Integer> streamInteger = Stream.of(1, 2, 3);
-        streamInteger.filter(item -> item>2); //流使用了一次，生成了新的流
+        streamInteger.filter(item -> item > 2); //流使用了一次，生成了新的流
 //        streamInteger.distinct();  //错误使用！！！流不能被重复使用
 
     }

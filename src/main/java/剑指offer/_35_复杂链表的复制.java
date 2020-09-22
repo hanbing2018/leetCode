@@ -13,16 +13,17 @@ public class _35_复杂链表的复制 {
 
     /**
      * 方法一：利用map存储原节点与新节点的对应关系，推荐
+     *
      * @param head
      * @return
      */
     public Node copyRandomList(Node head) {
-        if (head==null) return null;
+        if (head == null) return null;
         Node newhead = new Node(-1);
         Node oldLast = head;
         Node newLast = newhead;
         Map<Node, Node> map = new HashMap<>();
-        while (oldLast!=null){
+        while (oldLast != null) {
             Node tem = new Node(oldLast.val);
             newLast.next = tem;
             newLast = tem;
@@ -34,7 +35,7 @@ public class _35_复杂链表的复制 {
 
         oldLast = head;
         newLast = newhead;
-        while (newLast!=null){
+        while (newLast != null) {
             newLast.random = map.get(oldLast.random);
             newLast = newLast.next;
             oldLast = oldLast.next;
@@ -43,18 +44,18 @@ public class _35_复杂链表的复制 {
     }
 
     //方法二：在原链表中复制新节点，此方法时间过长！！！
-    public Node copyRandomList2(Node head){
-        if (head==null) return null;
+    public Node copyRandomList2(Node head) {
+        if (head == null) return null;
         Node last = head;
-        while (last!=null){
+        while (last != null) {
             Node tem = new Node(last.val);
             tem.next = last.next;
             last.next = tem;
             last = last.next.next;
         }
         last = head;
-        while (last!=null){
-            if (last.random!=null){
+        while (last != null) {
+            if (last.random != null) {
                 last.next = last.random.next;
             }
             last = last.next.next;
@@ -63,7 +64,7 @@ public class _35_复杂链表的复制 {
 
         Node newlast = newhead;
         last = head;
-        while (last!=null){
+        while (last != null) {
             last.next = newlast.next;
             last = last.next;
             newlast.next = last.next;

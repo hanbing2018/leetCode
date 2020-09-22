@@ -13,6 +13,7 @@ public class _160_相交链表 {
 
     /**
      * 方法一：将两个链表分别接到另一个链表的尾部进行判断是否相等
+     *
      * @param headA
      * @param headB
      * @return

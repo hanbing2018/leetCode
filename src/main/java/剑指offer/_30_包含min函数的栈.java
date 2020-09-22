@@ -17,14 +17,16 @@ public class _30_包含min函数的栈 {
     private Stack<Integer> stack;
     private Stack<Integer> stackMin;  //存储当前的最小值
 
-    /** initialize your data structure here. */
+    /**
+     * initialize your data structure here.
+     */
     public _30_包含min函数的栈() {
         stack = new Stack<>();
         stackMin = new Stack<>();
     }
 
     public void push(int x) {
-        if (stackMin.isEmpty() || stackMin.peek()>=x){
+        if (stackMin.isEmpty() || stackMin.peek() >= x) {
             stackMin.push(x);
         }
         stack.push(x);
@@ -32,11 +34,11 @@ public class _30_包含min函数的栈 {
 
     public void pop() {
         int pop = stack.pop();
-        if (pop==stackMin.peek()) stackMin.pop();
+        if (pop == stackMin.peek()) stackMin.pop();
     }
 
     public int top() {
-       return stack.peek();
+        return stack.peek();
     }
 
     public int min() {

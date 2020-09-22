@@ -18,6 +18,7 @@ public class _99_恢复二叉搜索树 {
 
     /**
      * 方法一：中序遍历取出val放入list中，list排序后再次中序遍历将val依次放入节点中。
+     *
      * @param root
      */
     public void recoverTree(TreeNode root) {
@@ -29,7 +30,7 @@ public class _99_恢复二叉搜索树 {
         list.sort(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                return o1>o2 ? 1:-1;
+                return o1 > o2 ? 1 : -1;
             }
         });
 
@@ -38,7 +39,7 @@ public class _99_恢复二叉搜索树 {
     }
 
     private void zhongxu(List<Integer> list, TreeNode root) {
-        if (root==null) return;
+        if (root == null) return;
 
         zhongxu(list, root.left);
 
@@ -48,7 +49,7 @@ public class _99_恢复二叉搜索树 {
     }
 
     private void zhongxu2(List<Integer> list, TreeNode root) {
-        if (root==null) return;
+        if (root == null) return;
 
         zhongxu2(list, root.left);
 
@@ -80,6 +81,7 @@ public class _99_恢复二叉搜索树 {
     private TreeNode second;
     //上一次中序遍历过的节点
     private TreeNode prev;
+
     public void recoverTree1(TreeNode root) {
         findWrongNodes(root);
         // 交换2个错误节点的值

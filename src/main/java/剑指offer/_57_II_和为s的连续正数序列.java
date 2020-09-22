@@ -8,28 +8,28 @@ import java.util.List;
 public class _57_II_和为s的连续正数序列 {
 
     public int[][] findContinuousSequence(int target) {
-        List<int[]> list =new LinkedList<>();
+        List<int[]> list = new LinkedList<>();
 
         int i = 1;
         int j = 2;
         int sum;
 
-        while (i<j){
-            sum = (i + j)*(j - i +1)/2;
-            if (sum == target){
-                int[] t = new int[j-i+1];
-                for (int k = 0; k <=j-i ; k++) {
-                    t[k] = k+i;
+        while (i < j) {
+            sum = (i + j) * (j - i + 1) / 2;
+            if (sum == target) {
+                int[] t = new int[j - i + 1];
+                for (int k = 0; k <= j - i; k++) {
+                    t[k] = k + i;
                 }
                 list.add(t);
                 i++;
                 continue;
             }
-            if (sum < target){
+            if (sum < target) {
                 j++;
                 continue;
             }
-            if (sum > target){
+            if (sum > target) {
                 i++;
                 continue;
             }

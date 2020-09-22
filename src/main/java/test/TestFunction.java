@@ -9,11 +9,11 @@ import java.util.function.Function;
 public class TestFunction {
 
 
-    public int compute1(int i, Function<Integer, Integer> function1, Function<Integer, Integer> function2){
+    public int compute1(int i, Function<Integer, Integer> function1, Function<Integer, Integer> function2) {
         return function1.compose(function2).apply(i);
     }
 
-    public int compute2(int i, Function<Integer, Integer> function1, Function<Integer, Integer> function2){
+    public int compute2(int i, Function<Integer, Integer> function1, Function<Integer, Integer> function2) {
         return function1.andThen(function2).apply(i);
     }
 

@@ -7,9 +7,9 @@ import java.util.*;
 public class _347_前K个高频元素 {
 
     public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer,Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0)+1);
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
         Set<Map.Entry<Integer, Integer>> entries = map.entrySet();
@@ -20,10 +20,10 @@ public class _347_前K个高频元素 {
             }
         });
         for (Map.Entry<Integer, Integer> entry : entries) {
-            if (heap.size()<k){
+            if (heap.size() < k) {
                 heap.offer(entry);
-            }else {
-                if (entry.getValue()>heap.peek().getValue()){
+            } else {
+                if (entry.getValue() > heap.peek().getValue()) {
                     heap.poll();
                     heap.offer(entry);
                 }

@@ -8,13 +8,13 @@ public class _65_不用加减乘除做加法 {
 
         int c;
         int r;
-        c = a^b;
-        r = (a&b)<<1;
+        c = a ^ b;
+        r = (a & b) << 1;
         a = c;
         b = r;
-        while (r!=0){
-            c = a^b;
-            r = (a&b)<<1;
+        while (r != 0) {
+            c = a ^ b;
+            r = (a & b) << 1;
 
             a = c;
             b = r;

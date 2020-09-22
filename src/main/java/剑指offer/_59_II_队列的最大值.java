@@ -17,7 +17,7 @@ public class _59_II_队列的最大值 {
 
     public void push_back(int value) {
         ben.offer(value);
-        while (max.size()!=0 && max.peekLast()<value){
+        while (max.size() != 0 && max.peekLast() < value) {
             max.pollLast();
         }
         max.offerLast(value);
@@ -27,7 +27,7 @@ public class _59_II_队列的最大值 {
         if (ben.isEmpty()) return -1;
 
         int p = ben.poll();
-        if (p == max.peekFirst()){
+        if (p == max.peekFirst()) {
             max.pollFirst();
         }
         return p;

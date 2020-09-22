@@ -6,6 +6,6 @@ package 算法;
  */
 public class _292_Nim游戏 {
     public boolean canWinNim(int n) {
-        return n%4 != 0;
+        return n % 4 != 0;
     }
 }

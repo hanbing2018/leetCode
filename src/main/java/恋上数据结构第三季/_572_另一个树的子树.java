@@ -16,16 +16,16 @@ public class _572_另一个树的子树 {
     }
 
     //后续遍历拼接字符串
-    private void houxu(TreeNode root, StringBuilder sb){
-        if (root.left==null){
+    private void houxu(TreeNode root, StringBuilder sb) {
+        if (root.left == null) {
             sb.append("#!");
-        }else {
+        } else {
             houxu(root.left, sb);
         }
 
-        if (root.right==null){
+        if (root.right == null) {
             sb.append("#!");
-        }else {
+        } else {
             houxu(root.right, sb);
         }
         sb.append(root.val).append("!");

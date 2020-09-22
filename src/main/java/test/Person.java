@@ -38,35 +38,37 @@ public class Person {
         this.age = age;
     }
 
-    static int compareByName(Person p1, Person p2){
+    static int compareByName(Person p1, Person p2) {
         return p1.name.compareTo(p2.name);
     }
 
-    static int compareByAge(Person p1, Person p2){
+    static int compareByAge(Person p1, Person p2) {
         return p1.age - p2.age;
     }
 
-    public int compareByNameNoStatic(Person p1, Person p2){
+    public int compareByNameNoStatic(Person p1, Person p2) {
         return p1.name.compareTo(p2.name);
     }
-    public int compareByAgeNoStatic(Person p1, Person p2){
+
+    public int compareByAgeNoStatic(Person p1, Person p2) {
         return p1.age - p2.age;
     }
 
     //实例方法
-    public int comByName(Person person){
+    public int comByName(Person person) {
         return this.name.compareTo(person.getName());
     }
 
-    public int comByAge(Person person){
+    public int comByAge(Person person) {
         return this.age - person.getAge();
     }
 
     //构造方法的引用
-    public String getString(Supplier<String> supplier){
+    public String getString(Supplier<String> supplier) {
         return supplier.get() + "test";
     }
-    public String getString2(String str, Function<String, String> function){
+
+    public String getString2(String str, Function<String, String> function) {
         return function.apply(str);
     }
 

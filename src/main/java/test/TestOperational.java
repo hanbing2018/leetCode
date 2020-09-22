@@ -21,6 +21,6 @@ public class TestOperational {
 //        person.setName("sunwukong");
         Optional<Person> optional1 = Optional.of(person);
         System.out.println(optional1.map(thePerson -> thePerson.getName())
-                                     .orElse("noName"));
+                .orElse("noName"));
     }
 }

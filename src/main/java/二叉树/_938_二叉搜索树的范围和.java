@@ -16,14 +16,14 @@ public class _938_二叉搜索树的范围和 {
         zhongxu(queue, root);
         int sum = 0;
         Integer t;
-        while ((t=queue.poll())!=null){
-            if (t>=L && t<=R) sum += t;
+        while ((t = queue.poll()) != null) {
+            if (t >= L && t <= R) sum += t;
         }
         return sum;
     }
 
     private void zhongxu(Queue<Integer> queue, TreeNode root) {
-        if (root==null) return;
+        if (root == null) return;
 
         zhongxu(queue, root.left);
 

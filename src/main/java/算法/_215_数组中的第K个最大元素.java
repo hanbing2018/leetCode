@@ -10,6 +10,7 @@ public class _215_数组中的第K个最大元素 {
     /**
      * 方法一：利用最小堆。遍历数组加入堆中，最小堆中始终保持k个元素，如果新的数字大于堆顶则加入堆。最后返回堆顶。
      * 不使用内置堆难度mid。利用java中的内置堆结构，是一种偷懒的做法；在可以使用内置堆的情况下，本题easy
+     *
      * @param nums
      * @param k
      * @return
@@ -17,11 +18,11 @@ public class _215_数组中的第K个最大元素 {
     public int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         for (int num : nums) {
-            if (minHeap.size()<k){
+            if (minHeap.size() < k) {
                 minHeap.offer(num);
                 continue;
             }
-            if (minHeap.peek() < num){
+            if (minHeap.peek() < num) {
                 minHeap.poll();
                 minHeap.offer(num);
             }

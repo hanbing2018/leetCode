@@ -8,6 +8,7 @@ import java.util.Set;
 public class _38_字符串的排列 {
 
     Set<String> set = new HashSet<>();
+
     public String[] permutation(String s) {
         char[] chars = s.toCharArray();
         permutation(chars, 0);
@@ -19,19 +20,19 @@ public class _38_字符串的排列 {
         return strings;
     }
 
-    public void permutation(char[] chars, int index){
-        if (index==chars.length){
+    public void permutation(char[] chars, int index) {
+        if (index == chars.length) {
             set.add(new String(chars));
         }
 
-        for (int i=index; i<chars.length;i++){
+        for (int i = index; i < chars.length; i++) {
             swap(chars, index, i);
-            permutation(chars, index+1);
+            permutation(chars, index + 1);
             swap(chars, index, i);
         }
     }
 
-    public void swap(char[] chars, int index1, int index2){
+    public void swap(char[] chars, int index1, int index2) {
         char t = chars[index1];
         chars[index1] = chars[index2];
         chars[index2] = t;

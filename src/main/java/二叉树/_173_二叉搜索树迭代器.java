@@ -22,19 +22,23 @@ public class _173_二叉搜索树迭代器 {
     }
 
     private void zhongxu(Queue<Integer> queue, TreeNode root) {
-        if (root==null) return;
+        if (root == null) return;
 
         zhongxu(queue, root.left);
         queue.offer(root.val);
         zhongxu(queue, root.right);
     }
 
-    /** @return the next smallest number */
+    /**
+     * @return the next smallest number
+     */
     public int next() {
         return queue.poll();
     }
 
-    /** @return whether we have a next smallest number */
+    /**
+     * @return whether we have a next smallest number
+     */
     public boolean hasNext() {
         return queue.isEmpty();
     }

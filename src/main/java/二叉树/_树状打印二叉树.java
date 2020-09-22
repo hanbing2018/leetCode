@@ -7,7 +7,7 @@ package 二叉树;
 public class _树状打印二叉树 {
 
     //树状打印一个二叉树
-    public static String toString(TreeNode root){
+    public static String toString(TreeNode root) {
         StringBuilder sb = new StringBuilder();
 
         toString(root, sb, "");
@@ -20,7 +20,7 @@ public class _树状打印二叉树 {
 
         sb.append(prefix).append(node.val).append("\n");
 
-        toString(node.left, sb, prefix+"L---");
-        toString(node.right, sb, prefix+"R---");
+        toString(node.left, sb, prefix + "L---");
+        toString(node.right, sb, prefix + "R---");
     }
 }

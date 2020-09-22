@@ -45,20 +45,20 @@ public class _5_最长回文子串 {
         int begin = 0;
 
         int i = 0;
-        while (i < cs.length){
+        while (i < cs.length) {
             int r = i;
             int l = i - 1;
-            while (++r < cs.length && cs[i]==cs[r]);
+            while (++r < cs.length && cs[i] == cs[r]) ;
             i = r;
 
-            while (l>=0 && r<cs.length && cs[l]==cs[r]){
+            while (l >= 0 && r < cs.length && cs[l] == cs[r]) {
                 l--;
                 r++;
             }
 
-            int b = l+1;
-            int len = r - l -1;
-            if (len > maxLen){
+            int b = l + 1;
+            int len = r - l - 1;
+            if (len > maxLen) {
                 begin = b;
                 maxLen = len;
             }

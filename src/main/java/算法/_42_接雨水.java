@@ -7,6 +7,7 @@ public class _42_接雨水 {
      * 方法一：是方法二的加强版，空间复杂度由O(n)减少为O(1)
      * 双指针解法。判断当前值左边最大值和右边最大值中的较小值，减去本身数值即为本值所在雨水量。
      * 时间复杂度O(n)，空间复杂度O(1)
+     *
      * @param height
      * @return
      */
@@ -36,11 +37,12 @@ public class _42_接雨水 {
 
     /**
      * 方法二：在暴力访问的基础上增加备忘录优化的算法
+     *
      * @param height
      * @return
      */
     int trap2(int[] height) {
-        if (height==null || height.length==0) return 0;
+        if (height == null || height.length == 0) return 0;
         int n = height.length;
         int ans = 0;
         // 数组充当备忘录

@@ -22,23 +22,23 @@ public class _23_合并K个排序链表 {
         ListNode head2 = l2;
         ListNode l = new ListNode(0);
         ListNode head = l;
-        while (head1 != null && head2 != null){
-            if (head1.val < head2.val){
+        while (head1 != null && head2 != null) {
+            if (head1.val < head2.val) {
                 head.next = new ListNode(head1.val);
                 head1 = head1.next;
                 head = head.next;
-            }else {
+            } else {
                 head.next = new ListNode(head2.val);
                 head2 = head2.next;
                 head = head.next;
             }
         }
-        while (head1 != null){
+        while (head1 != null) {
             head.next = new ListNode(head1.val);
             head1 = head1.next;
             head = head.next;
         }
-        while (head2 != null){
+        while (head2 != null) {
             head.next = new ListNode(head2.val);
             head2 = head2.next;
             head = head.next;

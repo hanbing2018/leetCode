@@ -12,6 +12,7 @@ public class _349_两个数组的交集 {
 
     /**
      * 用两个Set去重后，遍历一个Set，判断是否被第二个Set包含，是则属于交集
+     *
      * @param nums1
      * @param nums2
      * @return

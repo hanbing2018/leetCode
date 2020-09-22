@@ -9,16 +9,16 @@ public class _56_II_数组中数字出现的次数II {
         int mark;
 
         for (int i = 0; i < 32; i++) {
-            mark = 1<<(31-i);
+            mark = 1 << (31 - i);
             for (int num : nums) {
-                if ((num & mark)!=0) bitCounts[i]++;
+                if ((num & mark) != 0) bitCounts[i]++;
             }
         }
 
         int res = 0;
         for (int i = 0; i < 32; i++) {
             res <<= 1;
-            res += bitCounts[i]%3;
+            res += bitCounts[i] % 3;
         }
         return res;
     }

@@ -16,6 +16,7 @@ public class _234_回文链表 {
     /**
      * 方法一：时间复杂度O(n),空间复杂度O(n)
      * 用一个栈和一个队列，依次比较即可
+     *
      * @param head
      * @return
      */
@@ -23,14 +24,14 @@ public class _234_回文链表 {
         if (head == null) return true;
         Stack<ListNode> stack = new Stack<>();
         Queue<ListNode> queue = new LinkedList<>();
-        while (head != null){
+        while (head != null) {
             stack.push(head);
             queue.offer(head);
             head = head.next;
         }
-        int len = stack.size()/2;
+        int len = stack.size() / 2;
         for (int i = 0; i < len; i++) {
-            if (stack.pop().val!=queue.poll().val) return false;
+            if (stack.pop().val != queue.poll().val) return false;
         }
         return true;
     }
@@ -38,6 +39,7 @@ public class _234_回文链表 {
 
     /**
      * 方法二：翻转链表后半段，依次和前半段节点值比较，时间复杂度O(n),空间复杂度O(1)
+     *
      * @param head
      * @return
      */
@@ -72,6 +74,7 @@ public class _234_回文链表 {
      * 找到中间节点（右半部分链表头结点的前一个节点）
      * 比如 1>2>3>2>1中的3是中间节点
      * 比如 1>2>2>1中左边第一个2是中间节点
+     *
      * @param head
      * @return
      */
@@ -87,8 +90,9 @@ public class _234_回文链表 {
 
     /**
      * 翻转链表
+     *
      * @param head 原链表的头结点
-     * 比如原链表：1>2>3>4>null，翻转之后是：4>3>2>1>null
+     *             比如原链表：1>2>3>4>null，翻转之后是：4>3>2>1>null
      * @return 翻转之后链表的头结点（返回4）
      */
     private ListNode reverseList(ListNode head) {

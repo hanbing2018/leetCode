@@ -10,18 +10,18 @@ package 二叉树;
 public class _700_二叉搜索树中的搜索 {
     public TreeNode searchBST(TreeNode root, int val) {
         TreeNode node = root;
-        if (node==null) return null;
+        if (node == null) return null;
 
-        while (node!=null){
-            if (val>node.val) {
+        while (node != null) {
+            if (val > node.val) {
                 node = node.right;
                 continue;
             }
-            if (val<node.val) {
+            if (val < node.val) {
                 node = node.left;
                 continue;
             }
-            if (val==node.val) return node;
+            if (val == node.val) return node;
         }
 
         return node;

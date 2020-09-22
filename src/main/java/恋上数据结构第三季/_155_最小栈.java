@@ -11,36 +11,38 @@ public class _155_最小栈 {
      * 方法一：用两个栈，分别存储元素和元素的最小值
      */
     /* 用来存放正常数据 */
-	private Stack<Integer> stack;
-	/* 用来存放最小数据 */
-	private Stack<Integer> minStack;
+    private Stack<Integer> stack;
+    /* 用来存放最小数据 */
+    private Stack<Integer> minStack;
 
-    /** initialize your data structure here. */
+    /**
+     * initialize your data structure here.
+     */
     public _155_最小栈() {
-    	stack = new Stack<>();
-    	minStack = new Stack<>();
+        stack = new Stack<>();
+        minStack = new Stack<>();
     }
 
     public void push(int x) {
-    	stack.push(x);
-    	if (minStack.isEmpty()) {
-    		minStack.push(x);
-    	} else {
-    		minStack.push(Math.min(x, minStack.peek()));
-    	}
+        stack.push(x);
+        if (minStack.isEmpty()) {
+            minStack.push(x);
+        } else {
+            minStack.push(Math.min(x, minStack.peek()));
+        }
     }
 
     public void pop() {
-    	stack.pop();
-    	minStack.pop();
+        stack.pop();
+        minStack.pop();
     }
 
     public int top() {
-    	return stack.peek();
+        return stack.peek();
     }
 
     public int getMin() {
-    	return minStack.peek();
+        return minStack.peek();
     }
 
     /**
@@ -74,8 +76,6 @@ public class _155_最小栈 {
 		}
 	}
 */
-
-
 
 
 }

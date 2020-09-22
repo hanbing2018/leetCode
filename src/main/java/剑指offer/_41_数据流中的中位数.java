@@ -17,34 +17,35 @@ public class _41_数据流中的中位数 {
             return o2 - o1;
         }
     });
+
     public void addNum(int num) {
         if (maxDui.isEmpty()) {
             maxDui.offer(num);
             return;
         }
-        if (minDui.isEmpty()){
-            if (num<maxDui.peek()){
+        if (minDui.isEmpty()) {
+            if (num < maxDui.peek()) {
                 minDui.offer(maxDui.poll());
                 maxDui.offer(num);
                 return;
-            }else {
+            } else {
                 minDui.offer(num);
                 return;
             }
         }
 
         //最小堆和最大堆都不为空，始终保持maxDui.size()-minDui.size() 等于1或0
-        if (maxDui.size()==minDui.size()){
-            if (num <= minDui.peek()){
+        if (maxDui.size() == minDui.size()) {
+            if (num <= minDui.peek()) {
                 maxDui.offer(num);
-            }else {
+            } else {
                 maxDui.offer(minDui.poll());
                 minDui.offer(num);
             }
-        }else {
-            if (num >= maxDui.peek()){
+        } else {
+            if (num >= maxDui.peek()) {
                 minDui.offer(num);
-            }else {
+            } else {
                 minDui.offer(maxDui.poll());
                 maxDui.offer(num);
             }
@@ -52,10 +53,10 @@ public class _41_数据流中的中位数 {
     }
 
     public double findMedian() {
-        if (maxDui.size()>minDui.size()){
+        if (maxDui.size() > minDui.size()) {
             return maxDui.peek();
-        }else {
-            return (0.0+maxDui.peek()+minDui.peek())/2;
+        } else {
+            return (0.0 + maxDui.peek() + minDui.peek()) / 2;
         }
     }
 }

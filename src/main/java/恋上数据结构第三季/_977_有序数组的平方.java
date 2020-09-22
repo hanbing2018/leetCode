@@ -14,11 +14,12 @@ public class _977_有序数组的平方 {
 
     /**
      * 平方后加入到最小堆，依次取出最小堆的数值即为结果
+     *
      * @param A
      * @return
      */
     public int[] sortedSquares(int[] A) {
-        if (A==null || A.length==0) return new int[0];
+        if (A == null || A.length == 0) return new int[0];
 
         Queue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
             @Override
@@ -29,9 +30,9 @@ public class _977_有序数组的平方 {
         });
 
         for (int i : A) {
-            queue.add(i*i);
+            queue.add(i * i);
         }
-        int[] res  = new int[A.length];
+        int[] res = new int[A.length];
         for (int i = 0; i < res.length; i++) {
             res[i] = queue.remove();
         }

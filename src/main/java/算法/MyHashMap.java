@@ -67,7 +67,7 @@ public class MyHashMap<K, V> {
     }
 
     private void resize() {
-        CAPACITY= CAPACITY* 2;
+        CAPACITY = CAPACITY * 2;
         Entry[] newtable = new Entry[CAPACITY];
         for (Entry<K, V> entry : table) {
             Entry<K, V> e = entry; // 取得旧Entry数组的每个元素

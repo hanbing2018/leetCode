@@ -11,6 +11,7 @@ public class _16_部分排序 {
     /**
      * 最左边的逆序对的左边的数的位置就是左边界
      * 最右边的逆序对的右边的数的位置就是右边界
+     *
      * @param array
      * @return
      */
@@ -21,20 +22,20 @@ public class _16_部分排序 {
         int max = array[0];
         for (int i = 1; i < array.length; i++) {
             int v = array[i];
-            if (v>=max){
+            if (v >= max) {
                 max = v;
-            }else {
+            } else {
                 l = i;
             }
         }
 
         int r = -1;
-        int min = array[array.length-1];
-        for (int i = array.length-2; i >=0; i--) {
+        int min = array[array.length - 1];
+        for (int i = array.length - 2; i >= 0; i--) {
             int v = array[i];
-            if (v<=min){
+            if (v <= min) {
                 min = v;
-            }else {
+            } else {
                 r = i;
             }
         }

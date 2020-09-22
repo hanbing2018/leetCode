@@ -21,45 +21,55 @@ public class _225_用队列实现栈 {
     Queue<Integer> queueOut = new LinkedList<>();
 
 
-    /** Initialize your data structure here. */
+    /**
+     * Initialize your data structure here.
+     */
     public _225_用队列实现栈() {
 
     }
 
-    /** Push element x onto stack. */
+    /**
+     * Push element x onto stack.
+     */
     public void push(int x) {
-        if (queueIn.isEmpty()){
+        if (queueIn.isEmpty()) {
             queueIn.offer(x);
-            while (!queueOut.isEmpty()){
+            while (!queueOut.isEmpty()) {
                 queueIn.offer(queueOut.poll());
             }
-        }else {
+        } else {
             queueOut.offer(x);
-            while (!queueIn.isEmpty()){
+            while (!queueIn.isEmpty()) {
                 queueOut.offer(queueIn.poll());
             }
         }
     }
 
-    /** Removes the element on top of the stack and returns that element. */
+    /**
+     * Removes the element on top of the stack and returns that element.
+     */
     public int pop() {
-        if (!queueIn.isEmpty()){
+        if (!queueIn.isEmpty()) {
             return queueIn.poll();
-        }else {
+        } else {
             return queueOut.poll();
         }
     }
 
-    /** Get the top element. */
+    /**
+     * Get the top element.
+     */
     public int top() {
-        if (!queueIn.isEmpty()){
+        if (!queueIn.isEmpty()) {
             return queueIn.peek();
-        }else {
+        } else {
             return queueOut.peek();
         }
     }
 
-    /** Returns whether the stack is empty. */
+    /**
+     * Returns whether the stack is empty.
+     */
     public boolean empty() {
         return queueOut.isEmpty() && queueIn.isEmpty();
     }

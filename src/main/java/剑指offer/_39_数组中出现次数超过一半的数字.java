@@ -1,7 +1,6 @@
 package 剑指offer;
 
 
-
 //https://leetcode-cn.com/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/
 public class _39_数组中出现次数超过一半的数字 {
 
@@ -11,8 +10,8 @@ public class _39_数组中出现次数超过一半的数字 {
         int vote = 0;
         int x = nums[0];
         for (int num : nums) {
-            if (vote==0) x = num;
-            vote+= x==num? 1:-1;
+            if (vote == 0) x = num;
+            vote += x == num ? 1 : -1;
         }
         return x;
     }

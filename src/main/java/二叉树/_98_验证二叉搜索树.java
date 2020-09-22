@@ -14,20 +14,21 @@ public class _98_验证二叉搜索树 {
 
     /**
      * 对二叉树进行中序遍历，把val放入有序list中，依次取出list中的元素查看是否是单调递增即可
+     *
      * @param root
      * @return
      */
     public boolean isValidBST(TreeNode root) {
         Queue<Integer> queue = new LinkedList<>();
 
-        if (root==null) return true;  //空树
+        if (root == null) return true;  //空树
 
         //中序遍历
         zhongxu(queue, root);  //讲各个节点按小大的顺序进入队列
         int t1 = queue.poll();
         Integer t2;
-        while ((t2=queue.poll())!=null){
-            if (t2<=t1) return false;
+        while ((t2 = queue.poll()) != null) {
+            if (t2 <= t1) return false;
             t1 = t2;
         }
 
@@ -35,7 +36,7 @@ public class _98_验证二叉搜索树 {
     }
 
     private void zhongxu(Queue<Integer> queue, TreeNode root) {
-        if (root==null) return;
+        if (root == null) return;
 
         zhongxu(queue, root.left);
 

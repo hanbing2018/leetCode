@@ -18,32 +18,32 @@ public class _445_两数相加2 {
         int flag = 0;
         ListNode newnode = null;
 
-        while (l1!=null || l2!=null){
+        while (l1 != null || l2 != null) {
             sum = 0;
-            if (l1!=null){
+            if (l1 != null) {
                 sum += l1.val;
                 l1 = l1.next;
             }
-            if (l2!=null){
+            if (l2 != null) {
                 sum += l2.val;
                 l2 = l2.next;
             }
             sum += flag;
-            flag = sum/10;
-            sum%=10;
+            flag = sum / 10;
+            sum %= 10;
             newnode = new ListNode(sum);
 
             tail.next = newnode;
             tail = newnode;
         }
-        if (flag==1){
+        if (flag == 1) {
             tail.next = new ListNode(1);
         }
         return fanzhuan(newsum.next);
     }
 
-    private ListNode fanzhuan(ListNode head){
-        if (head==null || head.next==null) return head;
+    private ListNode fanzhuan(ListNode head) {
+        if (head == null || head.next == null) return head;
 
         ListNode newhead = fanzhuan(head.next);
         head.next.next = head;

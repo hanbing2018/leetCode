@@ -15,8 +15,8 @@ public class _31_栈的压入与弹出序列 {
 
         int j = 0;
         for (int i = 0; i < popped.length; i++) {
-            while (stack.isEmpty() || stack.peek()!=popped[i]){
-                if (j==pushed.length) return false;
+            while (stack.isEmpty() || stack.peek() != popped[i]) {
+                if (j == pushed.length) return false;
                 stack.push(pushed[j++]);
             }
             stack.pop();

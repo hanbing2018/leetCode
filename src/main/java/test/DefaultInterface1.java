@@ -5,5 +5,6 @@ package test;
  * @create 2020-01-14 16:26
  */
 public interface DefaultInterface1 {
-    default void method(){}
+    default void method() {
+    }
 }

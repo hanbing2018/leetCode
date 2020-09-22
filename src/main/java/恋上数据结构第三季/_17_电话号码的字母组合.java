@@ -19,10 +19,10 @@ public class _17_电话号码的字母组合 {
     };
 
     public List<String> letterCombinations(String digits) {
-        if(digits == null) return null;
+        if (digits == null) return null;
         char[] chars = digits.toCharArray();
         List<String> list = new LinkedList<>();
-        if (chars.length==0) return list;
+        if (chars.length == 0) return list;
 
         char[] strChars = new char[chars.length];
 
@@ -32,14 +32,14 @@ public class _17_电话号码的字母组合 {
     }
 
     private void dfs(char[] chars, int idx, List<String> list, char[] strChars) {
-        if (idx==chars.length){
+        if (idx == chars.length) {
             list.add(new String(strChars));
             return;
         }
 
-        for (char c :lettersArray[chars[idx] - '2']){
+        for (char c : lettersArray[chars[idx] - '2']) {
             strChars[idx] = c;
-            dfs(chars, idx+1, list, strChars);
+            dfs(chars, idx + 1, list, strChars);
         }
 
     }

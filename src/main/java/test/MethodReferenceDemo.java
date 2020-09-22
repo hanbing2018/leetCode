@@ -14,7 +14,7 @@ import java.util.function.Supplier;
  */
 public class MethodReferenceDemo {
 
-    static int comExample(Person p1, Person p2){
+    static int comExample(Person p1, Person p2) {
         return -9;
     }
 

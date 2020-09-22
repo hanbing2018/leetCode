@@ -13,6 +13,7 @@ public class _530_二叉搜索树的最小绝对差 {
 
     /**
      * 中序遍历后比较每两个相邻元素的差值，差值最小的为结果
+     *
      * @param root
      * @return
      */
@@ -24,15 +25,15 @@ public class _530_二叉搜索树的最小绝对差 {
         int min = Integer.MAX_VALUE;
         Integer t1 = queue.poll();
         Integer t2;
-        while ((t2=queue.poll())!=null){
-            min = Math.min(min, t2-t1);
-            t1=t2;
+        while ((t2 = queue.poll()) != null) {
+            min = Math.min(min, t2 - t1);
+            t1 = t2;
         }
         return min;
     }
 
     private void zhongxu(Queue<Integer> queue, TreeNode root) {
-        if (root==null) return;
+        if (root == null) return;
 
         zhongxu(queue, root.left);
 

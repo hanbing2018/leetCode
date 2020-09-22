@@ -13,7 +13,7 @@ public class _61_扑克牌中的顺子 {
         int max = 0;
         for (int num : nums) {
             if (num == 0) continue;
-            if(set.contains(num)) return false;
+            if (set.contains(num)) return false;
             else set.add(num);
             min = Math.min(min, num);
             max = Math.max(max, num);
