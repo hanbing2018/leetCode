@@ -8,6 +8,13 @@ package 二叉树;
 
 //https://leetcode-cn.com/problems/invert-binary-tree/submissions/
 public class _226_翻转二叉树 {
+
+    /**
+     * 利用递归即可，简单题目
+     *
+     * @param root
+     * @return
+     */
     public TreeNode invertTree(TreeNode root) {
         if (root == null) return null;
 
