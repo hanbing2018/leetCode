@@ -30,6 +30,7 @@ public class _16_数值的整数次方 {
 
         double result = myPowUnsigned(x, n >>> 1);
         result *= result;
+        //如果n是奇数，则结果result还需要乘一次x
         if ((n & 1) == 1) {
             result *= x;
         }

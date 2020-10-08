@@ -1,7 +1,5 @@
 package 剑指offer;
 
-import javafx.scene.transform.Rotate;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,6 +12,13 @@ import java.util.Queue;
 
 //https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/
 public class _32_I_从上到下打印二叉树 {
+
+    /**
+     * 就是二叉树的层序遍历而已
+     *
+     * @param root
+     * @return
+     */
     public int[] levelOrder(TreeNode root) {
         if (root == null) return null;
         Queue<TreeNode> queue = new LinkedList<>();
