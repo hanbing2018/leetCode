@@ -6,7 +6,7 @@ package 剑指offer;
  */
 
 //https://leetcode-cn.com/problems/zheng-ze-biao-da-shi-pi-pei-lcof/
-public class _19_正则表达式匹配 {
+public class HARD_19_正则表达式匹配 {
     public boolean isMatch(String s, String p) {
 
         /**
