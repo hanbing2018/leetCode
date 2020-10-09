@@ -2,11 +2,17 @@ package 剑指offer;
 
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 //https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
 public class _40_最小的k个数 {
 
+    /**
+     * 方法一：快速排序法的变形
+     *
+     * @param arr
+     * @param k
+     * @return
+     */
     public int[] getLeastNumbers(int[] arr, int k) {
         if (k == 0 || arr.length == 0) {
             return new int[0];
@@ -44,16 +50,7 @@ public class _40_最小的k个数 {
         return j;
     }
 
-    public static void main(String[] args) {
-        _40_最小的k个数 p = new _40_最小的k个数();
-        int[] arr = new int[]{0, 0, 1, 2, 4, 2, 2, 3, 1, 4};
-        p.getLeastNumbers(arr, 8);
-
-        Comparator<Integer> cmp = new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2.compareTo(o1);
-            }
-        };
-    }
+    /**
+     * 方法二：利用最大堆，PriorityQueue<Integer>
+     */
 }
