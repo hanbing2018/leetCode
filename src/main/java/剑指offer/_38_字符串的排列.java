@@ -1,8 +1,7 @@
 package 剑指offer;
 
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 //https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof/
 public class _38_字符串的排列 {
@@ -44,5 +43,48 @@ public class _38_字符串的排列 {
         char t = chars[index1];
         chars[index1] = chars[index2];
         chars[index2] = t;
+    }
+
+    /**
+     * 方法二：参考_47_全排列_II，利用dfs+剪枝的方法，避免set去重，减少时间复杂度
+     * 实际测试通过，但是时间很慢，比方法一还要慢
+     *
+     * @param s
+     * @return
+     */
+    public String[] permutation2(String s) {
+        char[] charS = s.toCharArray();
+        //存储最终结果
+        List<String> res = new LinkedList<>();
+        //存储每一次遍历到底的结果
+        char[] charRes = new char[charS.length];
+        //记录是否被访问过
+        boolean[] used = new boolean[charS.length];
+
+        //先将charS排序，必须进行这一步
+        Arrays.sort(charS);
+        dfs(charS, used, 0, res, charRes);
+
+        //处理结果即可
+        String[] result = new String[res.size()];
+        for (int i = 0; i < res.size(); i++) {
+            result[i] = res.get(i);
+        }
+        return result;
+    }
+
+    private void dfs(char[] charS, boolean[] used, int index, List<String> res, char[] charRes) {
+        if (index == charS.length) {
+            res.add(new String(charRes));
+            return;
+        }
+
+        for (int i = 0; i < charS.length; i++) {
+            if (used[i] || i > 0 && charS[i] == charS[i - 1] && !used[i - 1]) continue;
+            charRes[index] = charS[i];
+            used[i] = true;
+            dfs(charS, used, index + 1, res, charRes);
+            used[i] = false;
+        }
     }
 }
