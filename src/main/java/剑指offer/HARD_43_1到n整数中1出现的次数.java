@@ -2,7 +2,7 @@ package 剑指offer;
 
 
 //https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/
-public class _43_1到n整数中1出现的次数 {
+public class HARD_43_1到n整数中1出现的次数 {
 
 
     public int countDigitOne(int n) {

@@ -4,7 +4,13 @@ package 剑指offer;
 //https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/
 public class _45_把数组排成最小的数 {
 
-    //解法一
+    /**
+     * 方法一：利用任何一种排序方法都可以。这里采用快速排序方法。
+     * 用comp这一特殊的排序方法将元素从小到大排列即为元素最小的排列
+     *
+     * @param nums
+     * @return
+     */
     public String minNumber(int[] nums) {
         if (nums.length == 0) return "";
         mySort(nums, 0, nums.length - 1);

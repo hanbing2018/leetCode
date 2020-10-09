@@ -4,6 +4,12 @@ package 剑指offer;
 //https://leetcode-cn.com/problems/li-wu-de-zui-da-jie-zhi-lcof/
 public class _47_礼物的最大价值 {
 
+    /**
+     * 典型的动态规划算法，每一格子的最大值=max(上边格子最大值，左边格子最大值)+本格子最大值
+     *
+     * @param grid
+     * @return
+     */
     public int maxValue(int[][] grid) {
         int rows = grid.length;
         int cols = grid[0].length;
