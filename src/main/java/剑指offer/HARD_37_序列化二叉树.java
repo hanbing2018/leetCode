@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 //https://leetcode-cn.com/problems/xu-lie-hua-er-cha-shu-lcof/
-public class _37_序列化二叉树 {
+public class HARD_37_序列化二叉树 {
 
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {

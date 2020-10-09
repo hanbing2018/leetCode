@@ -45,7 +45,5 @@ public class _47_全排列_II {
             chars.remove(chars.size() - 1);
             used[i] = false;
         }
-
-
     }
 }
