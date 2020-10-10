@@ -2,7 +2,7 @@ package 剑指offer;
 
 
 //https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
-public class _51_数组中的逆序对 {
+public class HARD_51_数组中的逆序对 {
 
     public int reversePairs(int[] nums) {
         //使用归并排序计算逆序对是典型的解法，详细算法解释见LeetCode官方视频解
@@ -65,7 +65,7 @@ public class _51_数组中的逆序对 {
     }
 
     public static void main(String[] args) {
-        _51_数组中的逆序对 p = new _51_数组中的逆序对();
+        HARD_51_数组中的逆序对 p = new HARD_51_数组中的逆序对();
         p.reversePairs(new int[]{7, 5, 6, 4});
     }
 }

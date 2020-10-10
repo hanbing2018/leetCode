@@ -4,6 +4,12 @@ package 剑指offer;
 //https://leetcode-cn.com/problems/chou-shu-lcof/
 public class _49_丑数 {
 
+    /**
+     * 用三指针
+     *
+     * @param n
+     * @return
+     */
     public int nthUglyNumber(int n) {
 
         //dp
@@ -31,10 +37,5 @@ public class _49_丑数 {
         }
 
         return res[n - 1];
-    }
-
-    public static void main(String[] args) {
-        _49_丑数 p = new _49_丑数();
-        p.nthUglyNumber(10);
     }
 }
