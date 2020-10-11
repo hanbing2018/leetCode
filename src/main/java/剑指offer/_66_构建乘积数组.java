@@ -1,5 +1,7 @@
 package 剑指offer;
 
+
+//https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof/
 public class _66_构建乘积数组 {
 
     public int[] constructArr(int[] a) {
