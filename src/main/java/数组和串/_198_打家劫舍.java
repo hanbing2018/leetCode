@@ -1,4 +1,4 @@
-package 算法;
+package 数组和串;
 
 /**
  * @author hanbing
