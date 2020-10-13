@@ -4,6 +4,13 @@ package 剑指offer;
 //https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/
 public class _56_I_数组中数字出现的次数 {
 
+    /**
+     * 考察位运算。任何数与0做抑或运算是它本身，一个数与自身做抑或为0。
+     * 因此只需要将所有数进行位运算，最终结果就是只出现一次的数字
+     *
+     * @param nums
+     * @return
+     */
     public int[] singleNumbers(int[] nums) {
         int res = 0;
         for (int num : nums) {
