@@ -4,6 +4,13 @@ package 剑指offer;
 //https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof/
 public class _66_构建乘积数组 {
 
+    /**
+     * B[i]=A[0]×A[1]×…×A[i-1]×A[i+1]×…×A[n-1]
+     * 构建两个数组c和d，c[i]=A[0]×A[1]×…×A[i-1] d[i]=A[i-1]×A[i+1]×…×A[n-1]
+     *
+     * @param a
+     * @return
+     */
     public int[] constructArr(int[] a) {
         if (a.length == 0) return new int[0];
         int[] c = new int[a.length];
