@@ -2,7 +2,7 @@ package 算法;
 
 
 //https://leetcode-cn.com/problems/count-of-range-sum/
-public class todo_327_区间和的个数 {
+public class todo_HARD_327_区间和的个数 {
 
     /**
      * 考察归并排序
