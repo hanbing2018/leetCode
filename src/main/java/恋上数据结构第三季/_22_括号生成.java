@@ -9,6 +9,7 @@ public class _22_括号生成 {
 
     /**
      * dfs。依次判断下一层的符号可以选择哪个
+     *
      * @param n
      * @return
      */
