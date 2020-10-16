@@ -1,22 +1,12 @@
-package 排序;
+package 链表;
 
 /**
  * @author hanbing
- * @create 2020-02-15 22:24
+ * @create 2020-02-15 21:55
  */
 
-//https://leetcode-cn.com/problems/merge-k-sorted-lists/
-public class _23_合并K个排序链表 {
-    public ListNode mergeKLists(ListNode[] lists) {
-        int length = lists.length;
-        if (length == 0) return null;
-        ListNode l = lists[0];
-        for (int i = 1; i < length; i++) {
-            l = mergeTwoLists(l, lists[i]);
-        }
-        return l;
-    }
-
+//https://leetcode-cn.com/problems/merge-two-sorted-lists/comments/
+public class _21_合并两个有序链表 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode head1 = l1;
         ListNode head2 = l2;

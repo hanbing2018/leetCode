@@ -24,7 +24,7 @@ public class _94_二叉树的中序遍历 {
         TreeNode cur = root;
         while (true) {
             if (cur != null) {
-                //遍历当前节点
+                //将当前节点入栈
                 stack.push(cur);
                 //往左走
                 cur = cur.left;
@@ -33,6 +33,7 @@ public class _94_二叉树的中序遍历 {
             } else {
                 //左边走到底了，访问栈顶的元素
                 cur = stack.pop();
+                //访问当前元素
                 res.add(cur.val);
                 //往右走
                 cur = cur.right;

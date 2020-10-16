@@ -1,4 +1,4 @@
-package 排序;
+package 数组和串;
 
 /**
  * @author hanbing
