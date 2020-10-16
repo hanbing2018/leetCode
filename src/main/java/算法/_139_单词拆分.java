@@ -14,7 +14,7 @@ public class _139_单词拆分 {
      * 假如wordDict=["apple", "pen", "code"],s = "applepencode";
      * dp[8] = dp[5] + check("pen")
      * 翻译一下：前八位能否拆分取决于前五位能否拆分，加上五到八位是否属于字典
-     * （注意：i的顺序是从j-1 -> 0
+     * （注意：i的顺序是从j-1 -> 0)
      *
      * @param s
      * @param wordDict
