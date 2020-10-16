@@ -20,6 +20,7 @@ public class _328_奇偶链表 {
             if (ji.next == ou) {
                 ji.next = ou.next;
                 ji = ji.next;
+                //注意continue不可省略
                 continue;
             }
             if (ou.next == ji) {

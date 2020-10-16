@@ -14,7 +14,7 @@ public class _92_反转链表_II {
      */
     public ListNode reverseBetween(ListNode head, int m, int n) {
         if (m == 1) {
-            return reverseN(head, n);
+            return reverseK(head, n);
         }
         ListNode newHead = reverseBetween(head.next, m - 1, n - 1);
         head.next = newHead;
@@ -22,15 +22,16 @@ public class _92_反转链表_II {
     }
 
 
-    //翻转链表前k个节点
+    //翻转链表前k个节点，这个函数可以当做通用函数用在链表翻转类的题目中
+    //用一个全局变量next指向第k+1个节点
     ListNode next = null;
 
-    private ListNode reverseN(ListNode head, int k) {
+    private ListNode reverseK(ListNode head, int k) {
         if (k == 1) {
             next = head.next;
             return head;
         }
-        ListNode newHead = reverseN(head.next, k - 1);
+        ListNode newHead = reverseK(head.next, k - 1);
         head.next.next = head;
         head.next = next;
 

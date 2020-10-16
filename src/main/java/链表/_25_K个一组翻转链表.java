@@ -37,7 +37,7 @@ public class _25_K个一组翻转链表 {
     //翻转链表m到n的节点(m从1开始)
     private ListNode reverseMN(ListNode head, int m, int n) {
         if (m == 1) {
-            return reverseN(head, n);
+            return reverseK(head, n);
         }
         ListNode newHead = reverseMN(head.next, m - 1, n - 1);
         head.next = newHead;
@@ -47,12 +47,12 @@ public class _25_K个一组翻转链表 {
     //翻转链表的前k个节点
     ListNode next = null;
 
-    private ListNode reverseN(ListNode head, int k) {
+    private ListNode reverseK(ListNode head, int k) {
         if (k == 1) {
             next = head.next;
             return head;
         }
-        ListNode newHead = reverseN(head.next, k - 1);
+        ListNode newHead = reverseK(head.next, k - 1);
         head.next.next = head;
         head.next = next;
         return newHead;
@@ -73,7 +73,7 @@ public class _25_K个一组翻转链表 {
             b = b.next;
         }
         ListNode newHead = reverse(head, b);
-        head.next = reverseKGroup(b, k);
+        head.next = reverseKGroup2(b, k);
         return newHead;
 
     }

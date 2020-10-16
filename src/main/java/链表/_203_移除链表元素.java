@@ -18,16 +18,14 @@ public class _203_移除链表元素 {
      * @return
      */
     public ListNode removeElements(ListNode head, int val) {
-
         while (head != null && head.val == val) {
             head = head.next;
         }
-
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode tmp = head;
 
+        ListNode tmp = head;
         while (tmp.next != null) {
             if (tmp.next.val == val) {
                 tmp.next = tmp.next.next;
@@ -35,7 +33,6 @@ public class _203_移除链表元素 {
                 tmp = tmp.next;
             }
         }
-
         return head;
     }
 }

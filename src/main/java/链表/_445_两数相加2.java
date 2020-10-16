@@ -1,7 +1,5 @@
 package 链表;
 
-import java.io.PipedReader;
-
 /**
  * @author hanbing
  * @create 2020-04-07 13:47
@@ -9,6 +7,13 @@ import java.io.PipedReader;
 
 //https://leetcode-cn.com/problems/add-two-numbers-ii/
 public class _445_两数相加2 {
+    /**
+     * 将两个链表翻转后相加，结果链表再次翻转
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         l1 = fanzhuan(l1);
         l2 = fanzhuan(l2);
@@ -36,6 +41,7 @@ public class _445_两数相加2 {
             tail.next = newnode;
             tail = newnode;
         }
+        //如果flag为1则需要进位
         if (flag == 1) {
             tail.next = new ListNode(1);
         }
