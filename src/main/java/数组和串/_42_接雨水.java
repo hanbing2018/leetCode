@@ -1,4 +1,4 @@
-package 算法;
+package 数组和串;
 
 //https://leetcode-cn.com/problems/trapping-rain-water/
 public class _42_接雨水 {

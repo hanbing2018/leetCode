@@ -1,4 +1,4 @@
-package 算法;
+package 数组和串;
 
 //https://leetcode-cn.com/problems/spiral-matrix/
 public class _54_螺旋矩阵 {
