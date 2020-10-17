@@ -1,4 +1,4 @@
-package 数组和串;
+package 恋上数据结构第三季;
 
 //https://leetcode-cn.com/problems/trapping-rain-water/
 public class _42_接雨水 {
