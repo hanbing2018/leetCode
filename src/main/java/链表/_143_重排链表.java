@@ -1,7 +1,7 @@
 package 链表;
 
 //https://leetcode-cn.com/problems/reorder-list/
-public class todo_143_重排链表 {
+public class _143_重排链表 {
 
     /**
      * 1.找到中间节点
