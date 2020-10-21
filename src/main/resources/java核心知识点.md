@@ -47,3 +47,5 @@
 *Activity(了解)*
 
 *SpringData JPA(了解)*
+
+*JDK8新特性(熟悉)*
