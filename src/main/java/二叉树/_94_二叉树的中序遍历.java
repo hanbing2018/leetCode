@@ -33,7 +33,6 @@ public class _94_二叉树的中序遍历 {
             } else {
                 //左边走到底了，访问栈顶的元素
                 cur = stack.pop();
-                //访问当前元素
                 res.add(cur.val);
                 //往右走
                 cur = cur.right;
