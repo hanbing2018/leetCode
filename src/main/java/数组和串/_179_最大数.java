@@ -7,7 +7,7 @@ import java.util.Comparator;
 public class _179_最大数 {
 
     /**
-     * 本题可以简单理解为一个排序问题
+     * 本题可以简单理解为一个排序问题，难点在于排序规则的理解
      *
      * @param nums
      * @return
