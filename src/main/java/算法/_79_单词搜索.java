@@ -8,7 +8,7 @@ public class _79_单词搜索 {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
                 boolean[][] visited = new boolean[board.length][board[0].length];
-                if (board[i][j]!=chars[0]) continue;
+                if (board[i][j] != chars[0]) continue;
                 if (existCore(board, chars, 0, visited, i, j)) return true;
             }
         }
