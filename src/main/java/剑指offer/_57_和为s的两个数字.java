@@ -4,6 +4,12 @@ package 剑指offer;
 //https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/
 public class _57_和为s的两个数字 {
 
+    /**
+     * 简单题
+     * @param nums
+     * @param target
+     * @return
+     */
     public int[] twoSum(int[] nums, int target) {
         if (nums.length <= 1) return new int[2];
 
