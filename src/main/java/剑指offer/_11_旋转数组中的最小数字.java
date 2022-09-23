@@ -20,7 +20,7 @@ public class _11_旋转数组中的最小数字 {
         int mid = left;  //设置mid为最左的数，当数组并未旋转时直接返回left
         while (numbers[left] >= numbers[right]) {
             if (right - left == 1) return numbers[right]; //right与left相差1，此时left指向左部分最大值，right指向右部分最小值
-            mid = left + (right - left) / 2;
+            mid = (left + right)/2;
             //如果left、right和mid指向的数值相等，则不能判断最小值的位置，此时要采用顺序查找的方式
             if (numbers[left] == numbers[mid] && numbers[mid] == numbers[right]) {
                 return minEqual(numbers);
