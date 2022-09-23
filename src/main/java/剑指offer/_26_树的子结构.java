@@ -30,12 +30,8 @@ public class _26_树的子结构 {
 
     //判断树A从根节点开始是否包含树B的结构
     private boolean contains(TreeNode A, TreeNode B) {
-        if (A == null) {
-            if (B == null) return true;
-            return false;  //A B中只有A为null
-        }
-        //A B中只有B为null
         if (B == null) return true;
+        if (A == null) return false;    // 只有A为null
 
         if (A.val == B.val) {
             return contains(A.left, B.left) && contains(A.right, B.right);
