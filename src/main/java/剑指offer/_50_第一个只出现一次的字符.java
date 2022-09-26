@@ -26,9 +26,6 @@ public class _50_第一个只出现一次的字符 {
         return ' ';
     }
 
-    public static void main(String[] args) {
-        System.out.println(null == null);
-    }
 }
 
 

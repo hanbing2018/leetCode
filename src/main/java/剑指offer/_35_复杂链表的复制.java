@@ -19,6 +19,7 @@ public class _35_复杂链表的复制 {
      */
     public Node copyRandomList(Node head) {
         if (head == null) return null;
+        // 虚拟头结点
         Node newhead = new Node(-1);
         Node oldLast = head;
         Node newLast = newhead;
