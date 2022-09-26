@@ -18,7 +18,7 @@ public class _53_I_在排序数组中查找数字I {
         int mid;
 
         while (i <= j) {
-            mid = i + (j - i) / 2;
+            mid = (i + j) / 2;
 
             if (nums[mid] <= target) i = mid + 1;
             else j = mid - 1;
@@ -29,7 +29,7 @@ public class _53_I_在排序数组中查找数字I {
         i = 0;
         j = nums.length - 1;
         while (i <= j) {
-            mid = i + (j - i) / 2;
+            mid = (i + j) / 2;
 
             if (nums[mid] >= target) j = mid - 1;
             else i = mid + 1;

@@ -16,7 +16,7 @@ public class _53_II_0到n减1中缺失的数字 {
         int j = nums.length - 1;
         int mid;
         while (i <= j) {
-            mid = i + (j - i) / 2;
+            mid = (i + j) / 2;
             if (nums[mid] == mid) i = mid + 1;
             else j = mid - 1;
         }
