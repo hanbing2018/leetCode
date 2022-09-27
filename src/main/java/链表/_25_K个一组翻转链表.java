@@ -73,7 +73,7 @@ public class _25_K个一组翻转链表 {
             b = b.next;
         }
         ListNode newHead = reverse(head, b);
-        head.next = reverseKGroup2(b, k);
+        head.next = reverseKGroup2(b, k); // 此时head变为前K个节点翻转后的尾结点
         return newHead;
 
     }

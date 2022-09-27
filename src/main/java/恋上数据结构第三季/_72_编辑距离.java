@@ -4,10 +4,17 @@ package 恋上数据结构第三季;
 //https://leetcode-cn.com/problems/edit-distance/
 public class _72_编辑距离 {
 
+    /**
+     * dp
+     * @param word1
+     * @param word2
+     * @return
+     */
     public int minDistance(String word1, String word2) {
         if (word1 == null || word2 == null) return 0;
         char[] cs1 = word1.toCharArray();
         char[] cs2 = word2.toCharArray();
+        // dp[i][j]表示cs1前i个字符转化为cs2前j个字符所需要的的最少操作数
         int[][] dp = new int[cs1.length + 1][cs2.length + 1];
         dp[0][0] = 0;
         // 第0列
