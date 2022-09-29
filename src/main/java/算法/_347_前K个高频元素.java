@@ -13,12 +13,7 @@ public class _347_前K个高频元素 {
         }
 
         Set<Map.Entry<Integer, Integer>> entries = map.entrySet();
-        PriorityQueue<Map.Entry<Integer, Integer>> heap = new PriorityQueue<>(new Comparator<Map.Entry<Integer, Integer>>() {
-            @Override
-            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
-                return o1.getValue() - o2.getValue();
-            }
-        });
+        PriorityQueue<Map.Entry<Integer, Integer>> heap = new PriorityQueue<>((o1, o2) -> o1.getValue() - o2.getValue());
         for (Map.Entry<Integer, Integer> entry : entries) {
             if (heap.size() < k) {
                 heap.offer(entry);

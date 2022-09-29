@@ -1,7 +1,6 @@
 package 二叉树;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -27,12 +26,7 @@ public class _99_恢复二叉搜索树 {
 
 
         //用list自带的方法排序
-        list.sort(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o1 > o2 ? 1 : -1;
-            }
-        });
+        list.sort((o1, o2) -> o1 > o2 ? 1 : -1);
 
 
         zhongxu2(list, root);  //再次中序遍历放入所有的值

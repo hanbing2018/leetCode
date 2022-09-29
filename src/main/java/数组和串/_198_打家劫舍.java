@@ -44,7 +44,7 @@ public class _198_打家劫舍 {
 
     private int robCore(int[] nums, int start) {
         if (start == nums.length - 1) return nums[nums.length - 1];
-        if (start > nums.length - 1) return 0;
+        if (start == nums.length - 2) return Math.max(nums[start], nums[start + 1]);
 
         return Math.max(robCore(nums, start + 1), nums[start] + robCore(nums, start + 2));
     }
