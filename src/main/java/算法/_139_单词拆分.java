@@ -12,7 +12,7 @@ public class _139_单词拆分 {
      * 其实，调整遍历顺序，这等价于s[i+1, j]是否是wordDict中的元素
      * 这个举个例子就很容易理解。
      * 假如wordDict=["apple", "pen", "code"],s = "applepencode";
-     * dp[8] = dp[5] + check("pen")
+     * dp[8] = dp[5] && check("pen")
      * 翻译一下：前八位能否拆分取决于前五位能否拆分，加上五到八位是否属于字典
      * （注意：i的顺序是从j-1 -> 0)
      *

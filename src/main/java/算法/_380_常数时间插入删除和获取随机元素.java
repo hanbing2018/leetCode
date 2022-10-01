@@ -52,6 +52,6 @@ public class _380_常数时间插入删除和获取随机元素 {
      * Get a random element from the set.
      */
     public int getRandom() {
-        return a[rand.nextInt(size)];
+        return a[rand.nextInt(size)];  // nextInt(n)将返回一个大于等于0小于n的随机数，即：0 <= nextInt(n) < n
     }
 }
