@@ -1,5 +1,8 @@
 package 剑指offer;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * @author hanbing
  * @create 2020-04-13 18:28
@@ -31,5 +34,42 @@ public class _28_对称的二叉树 {
     }
 
 
-    //方法二：迭代（非递归）
+    /**
+     * 方法二：迭代（非递归）
+     * 初始化时我们把根节点入队两次。每次提取两个结点并比较它们的值（队列中每两个连续的结点应该是相等的，
+     * 而且它们的子树互为镜像），然后将两个结点的左右子结点按相反的顺序插入队列中。当队列为空时，
+     * 或者我们检测到树不对称（即从队列中取出两个不相等的连续结点）时，该算法结束。
+     *
+     * @param root
+     * @return
+     */
+
+    public boolean isSymmetric2(TreeNode root) {
+        return check(root, root);
+    }
+
+    public boolean check(TreeNode u, TreeNode v) {
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        q.offer(u);
+        q.offer(v);
+        while (!q.isEmpty()) {
+            u = q.poll();
+            v = q.poll();
+            if (u == null && v == null) {
+                continue;
+            }
+            if ((u == null || v == null) || (u.val != v.val)) {
+                return false;
+            }
+
+            q.offer(u.left);
+            q.offer(v.right);
+
+            q.offer(u.right);
+            q.offer(v.left);
+        }
+        return true;
+    }
+
+
 }
