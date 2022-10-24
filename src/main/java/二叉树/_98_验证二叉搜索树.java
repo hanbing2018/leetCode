@@ -24,7 +24,7 @@ public class _98_验证二叉搜索树 {
         if (root == null) return true;  //空树
 
         //中序遍历
-        zhongxu(queue, root);  //讲各个节点按小大的顺序进入队列
+        zhongxu(queue, root);
         int t1 = queue.poll();
         Integer t2;
         while ((t2 = queue.poll()) != null) {

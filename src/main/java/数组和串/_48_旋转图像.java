@@ -8,7 +8,7 @@ package 数组和串;
 //https://leetcode-cn.com/problems/rotate-image/
 public class _48_旋转图像 {
     /**
-     * 先左上右下调换，再每一行左右调换
+     * 先右上左下调换，再每一行左右调换
      *
      * @param matrix
      */
