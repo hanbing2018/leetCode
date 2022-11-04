@@ -20,7 +20,7 @@ public class _236_二叉树的最近公共祖先 {
         TreeNode right = lowestCommonAncestor(root.right, p, q);
         //如果left不为null且right也不为null，则必定left等于p、q中的一个，right等于另一个，此时root为最近公共祖先
         if (left != null && right != null) return root;
-        //如果right为null，则left必定等于p或q此时left为最近公共祖先
+        //如果right为null，则此时left为最近公共祖先
         return left == null ? right : left;
     }
 }
